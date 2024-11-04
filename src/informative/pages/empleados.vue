@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal luego lo hago componente -->
         <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div class="overflow-hidden p-6 w-full max-h-full md:w-3/5 lg:w-2/5 xl:w-1/3 bg-white flex flex-col items-center justify-center rounded-lg border-2 border-gray-300 shadow-xl shadow-black/30">
                 <div class="flex items-center justify-between w-full h-10 min-h-10 mb-4">
