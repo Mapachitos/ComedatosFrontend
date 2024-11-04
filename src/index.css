@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.botonVisualizar {
+    @apply text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md text-sm outline-none;
+}
+
+.p-datatable {
+    height: 100%;
+    width: 100%;
+}
+
+.p-datatable-thead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    @apply text-white text-sm rounded-lg;
+}
+
+.staticColum {
+    position: sticky;
+    right: 0;
+}
+
+.tablaPrimeVue div table tbody tr {
+    @apply bg-gray-200 text-sm rounded-t-lg;
+}
+
+.tablaPrimeVue table thead tr th {
+    @apply font-normal text-center;
+}
+
+.tablaPrimeVue div table tbody tr:hover td {
+    @apply bg-gray-300;
+}
+
+.tablaPrimeVue table thead tr th:last-child {
+    @apply bg-color-5 z-30;
+}
+
+.tablaPrimeVue table tbody tr td:last-child {
+    @apply bg-gray-200 z-10;
+}
+
+.tablaPrimeVue div table tr {
+    @apply bg-color-5;
+}
+
+.tablaPrimeVue table thead tr th div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    @apply space-x-1 py-4 px-4 text-center;
+}
+
+.tablaPrimeVue table thead tr th div span svg {
+    @apply h-4 w-4;
+}
+
+.tablaPrimeVue table tbody tr td {
+    @apply py-4 px-2 border-none text-center ;
+}
+
+.tablaPrimeVue div {
+    @apply rounded-t-lg;
+}
+
+.tablaPrimeVue {
+    @apply rounded-lg bg-gray-200;
+}
