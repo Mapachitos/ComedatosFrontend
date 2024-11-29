@@ -10,10 +10,9 @@
                     class="h-full w-36 text-sm text-white outline-none border-b-2 border-b-color-2 focus:border-b-white bg-white/0 option-color py-2">
                     <option value="">Filtros</option>
                     <option value="">Todos</option>
-                    <option value="ACEPTADO">Aceptados</option>
-                    <option value="PENDIENTE">Enviados</option>
-                    <option value="ASIGNADO">Revisión</option>
-                    <option value="RECHAZADO">Corrección</option>
+                    <option value="ACEPTADO">Inscripción</option>
+                    <option value="PENDIENTE">Evaluación</option>
+                    <option value="ASIGNADO">Finalizado</option>
                 </select>
             </div>
             <button
