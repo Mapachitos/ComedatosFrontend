@@ -1,13 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import presentationRoute from '@/informative/router';
+import informativeRoute from '@/informative/router';
+import authRoute from '@/auth/router';
+import contestsRouter from '@/contests/router';
 
 const router = createRouter({
   history: createWebHistory(''),
   routes: [
-    presentationRoute,
+    {...informativeRoute},
+    {...authRoute},
+    {...contestsRouter},
     {
       path: '/:pathMatch(.*)*',
-      redirect: '/informative',
+      redirect: '/informative/areas',
     },
   ],
 });

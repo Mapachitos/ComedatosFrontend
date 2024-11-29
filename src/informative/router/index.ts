@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from "vue-router";
 
 const ROUTE_NAME = "informative";
 
-export const presentationRoute: RouteRecordRaw = {
+export const informativeRoute: RouteRecordRaw = {
     path: `/${ROUTE_NAME}`,
     name: ROUTE_NAME,
     component: () => import("@/informative/layout/informativeLayout.vue"),
@@ -25,4 +25,4 @@ export const presentationRoute: RouteRecordRaw = {
     ]
 }
 
-export default presentationRoute;
+export default informativeRoute;
