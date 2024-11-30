@@ -28,10 +28,10 @@
                             class="text-center font-semibold">
                         </Column>
                         <Column sortable field="denominacionArea"
-                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 40%;"
+                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 30%;"
                             class="text-center">
                         </Column>
-                        <Column field="hipervinculo" header="Perfil" style="width: 25%;" class="text-center">
+                        <Column field="hipervinculo" header="Perfil" style="width: 20%;" class="text-center">
                         </Column>
                         <Column header="Concursos" style="width: 15%;" class="text-center">
                             <template #body="slotProps">

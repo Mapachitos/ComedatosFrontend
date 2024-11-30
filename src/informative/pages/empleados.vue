@@ -34,6 +34,8 @@
                         </Column>
                         <Column sortable field="fechaAltaCargo" header="Fecha de alta en el cargo" style="width: 10%;"
                             class="text-center"></Column>
+                        <Column sortable field="sueldos" header="Sueldos" style="width: 8.75%;" class="text-center">
+                        </Column>
                         <Column header="Perfil" style="width: 8.75%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
@@ -49,13 +51,6 @@
                             </template>
                         </Column>
                         <Column header="Contratos" style="width: 8.75%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar" @click.stop>Visualizar</button>
-                                </div>
-                            </template>
-                        </Column>
-                        <Column header="Sueldos" style="width: 8.75%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
                                     <button class="space-x-1 px-3 py-2 botonVisualizar" @click.stop>Visualizar</button>
@@ -102,6 +97,7 @@ const productos = ref([
         sexo: 'Masculino',
         fechaAltaCargo: '2023-05-15',
         viabilidad: 'Calle',
+        sueldos: '50000',
     },
     {
         clave: 'RFC002',
@@ -111,6 +107,7 @@ const productos = ref([
         sexo: 'Femenino',
         fechaAltaCargo: '2021-09-10',
         viabilidad: 'Avenida',
+        sueldos: '60000',
     },
 ]);
 
@@ -125,6 +122,7 @@ const headers = {
     sexo: 'Sexo (catálogo)',
     fechaAltaCargo: 'Fecha de alta en el cargo',
     viabilidad: 'Domicilio oficial: Tipo de vialidad (catálogo)',
+    sueldos: 'Sueldos',
 };
 
 // Función para manejar el clic en una fila

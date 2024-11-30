@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex flex-col p-8 w-full h-full sm:h-7/8  sm:w-11/12 xl:w-11/12 2xl:w-11/12 3xl:w-9/12 sm:rounded-2xl bg-color-1 shadow-lg">
+        class="flex flex-col p-8 w-full h-full sm:h-7/8  sm:w-11/12 xl:w-11/12 2xl:w-11/12 3xl:w-9/12 sm:rounded-2xl bg-color-1 shadow-lg" v-show="storeNav.getSelectedView() === 'ListaConcursos'">
 
         <div
             class="min-h-12 md:min-h-14 flex w-full justify-between items-center flex-row rounded-lg  border self-center shadow-lg overflow-x-auto overflow-y-hidden p-2 bg-color-2">
@@ -15,7 +15,7 @@
                     <option value="ASIGNADO">Finalizado</option>
                 </select>
             </div>
-            <button
+            <button @click="storeNav.setSelectedView('agregarConcurso');"
                 class="w-48 h-full px-3 py-2 text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md md:text-sm text-xs outline-none">
                 Agregar Concurso
             </button>
@@ -27,12 +27,18 @@
         </div>
     </div>
 
+    <agregarConcurso v-if="storeNav.getSelectedView() === 'agregarConcurso'"/>
+
 </template>
 
 <script setup lang="ts">
+import { navInfoStore } from '@/stores/NavInfoStore';
+const storeNav = navInfoStore();
+storeNav.setSelectedView('ListaConcursos');
 
 //Componentes
 import concursos from '../components/concursos.vue';
+import agregarConcurso from '../components/agregarConcurso.vue';
 </script>
 
 <style scoped>
