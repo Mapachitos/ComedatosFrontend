@@ -18,30 +18,30 @@
 
             <div class="w-full h-full relative overflow-hidden">
                 <div class="size-full rounded-lg bg-gray-200">
-                    <DataTable :value="productos" scrollable scrollHeight="100%"
+                    <DataTable :value="empleados" scrollable scrollHeight="100%"
                         tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue"
                         @row-click="handleRowClick">
-                        <Column sortable field="nombreEmpleado" header="Nombre de la persona servidora pública"
+                        <Column sortable field="Empleado_Nombre" header="Nombre de la persona servidora pública"
                             style="width: 10%;" class="text-center">
                             <template #body="slotProps">
-                                {{ slotProps.data.nombreEmpleado + ' ' + slotProps.data.apellidoPaterno + ' ' + slotProps.data.apellidoMaterno }}
+                                {{ slotProps.data.Empleado_Nombre + ' ' + slotProps.data.Empleado_Ap1 + ' ' + slotProps.data.Empleado_Ap2 }}
                             </template></Column>
-                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 15%;"
+                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 15%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="denominacionCargo" header="Denominación del cargo" style="width: 15%;"
+                        <Column sortable field="Puesto_Denominacion" header="Denominación del cargo" style="width: 15%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="carrera" header="Carrera genérica en su cargo" style="width: 10%;"
+                        <Column sortable field="Empleados_Carrera" header="Carrera genérica en su cargo" style="width: 10%;"
                             class="text-center"></Column>
-                        <Column sortable field="trayectoria"
+                        <Column sortable field="Empleado_Trayectoria"
                             header="Hipervínculo al documento que contenga la trayectoria" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="sanciones" header="Sanciones administrativas" style="width: 10%;"
+                        <Column sortable field="Empleado_Sanciones" header="Sanciones administrativas" style="width: 10%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="sueldo" header="Monto de la remuneración mensual bruta"
+                        <Column sortable field="Empleado_Sueldo" header="Monto de la remuneración mensual bruta"
                             style="width: 11.25%;" class="text-center">
                         </Column>
                         <Column header="Detalles" style="width: 8.75%;" class="text-center">
@@ -62,90 +62,46 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
 import modalEmpleados from '../components/modalEmpleados.vue';
+import { type EmpleadoInterface } from '../interfaces/empleadoInterface';
+import { getEmpleados } from '../services/empleadoService';
 
-
-const productos = ref([
-    {
-        nombreEmpleado: 'Juan Pablo',
-        apellidoPaterno: 'Pérez',
-        apellidoMaterno: 'Robles',
-        denominacionArea: 'Recursos Humanos',
-        denominacionCargo: 'Gerente',
-        sexo: 'Masculino',
-        domicilioTipoViabilidad: 'Avenida',
-        domicilioNombreViabilidad: 'Insurgentes',
-        numeroExterior: 'S/N',
-        numeroInterior: '123',
-        nombreColonia: 'Adolfo López Mateos',
-        tipoAsentamiento: 'Colonia',
-        localidad: 'Chetumal',
-        municipio: 'Othón P. Blanco',
-        estado : 'Quintana Roo',
-        cp : '77000',
-        celular : '9831234567',
-        nivelEstudios : 'Maeestría',
-        carrera: 'Administración',
-        trayectoria: 'http://example.com/trayectoria/juan-perez',
-        sanciones: 'Ninguna',
-        sueldo: '50,000 MXN'
-    },
-    {
-        nombreEmpleado: 'María',
-        apellidoPaterno: 'López',
-        apellidoMaterno: 'García',
-        denominacionArea: 'Finanzas',
-        denominacionCargo: 'Analista',
-        sexo: 'Femenino',
-        domicilioTipoViabilidad: 'Avenida',
-        domicilioNombreViabilidad: 'Insurgentes',
-        numeroExterior: 'S/N',
-        numeroInterior: '123',
-        nombreColonia: 'Adolfo López Mateos',
-        tipoAsentamiento: 'Colonia',
-        localidad: 'Chetumal',
-        municipio: 'Othón P. Blanco',
-        estado : 'Quintana Roo',
-        cp : '77000',
-        celular : '9831234567',
-        nivelEstudios : 'Licenciatura',
-        carrera: 'Contabilidad',
-        trayectoria: 'http://example.com/trayectoria/maria-lopez',
-        sanciones: 'Ninguna',
-        sueldo: '40,000 MXN'
-    }
-]);
+const empleados = ref<EmpleadoInterface[]>();
 
 const showModal = ref(false);
 const selectedRow = ref({});
 
+onMounted(async () => {
+    empleados.value = await getEmpleados();
+});
+
 const headers = {
-    nombreEmpleado: 'Nombre(s) de la persona servidora pública',
-    apellidoPaterno: 'Primer apellido de la persona servidora pública',
-    apellidoMaterno: 'Segundo apellido de la persona servidora pública',
-    denominacionArea: 'Denominación del área',
-    denominacionCargo: 'Denominación del cargo',
-    carrera: 'Carrera genérica en su cargo',
-    trayectoria: 'Hipervínculo al documento que contenga la trayectoria',
-    sanciones: 'Sanciones administrativas definitivas aplicadas por la autoridad competente (catálogo)',
-    sueldo: 'Monto de la remuneración mensual bruta de conformidad al tabulador de sueldos y salarios que corresponda',
-    sexo: 'Sexo (catálogo)',
-    domicilioTipoViabilidad: 'Domicilio oficial: tipo de vialidad (catálogo)',
-    domicilioNombreViabilidad: 'Domicilio oficial: nombre de vialidad',
-    numeroExterior: 'Domicilio oficial: número exterior',
-    numeroInterior: 'Domicilio oficial: número interior',
-    nombreColonia: 'Domicilio oficial: tipo de asentamiento (catálogo)',
-    tipoAsentamiento: 'Domicilio oficial: nombre del asentamiento',
-    localidad: 'Domicilio oficial: nombre de la localidad',
-    municipio: 'Domicilio oficial: nombre del municipio o delegación',
-    estado: 'Domicilio oficial: nombre de la entidad federativa (catálogo)',
-    cp: 'Domicilio oficial: código postal',
-    celular: 'Número(s) de teléfono oficial',
-    nivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)'
+    Empleado_Nombre: 'Nombre(s) de la persona servidora pública',
+    Empleado_Ap1: 'Primer apellido de la persona servidora pública',
+    Empleado_Ap2: 'Segundo apellido de la persona servidora pública',
+    Area_Denominacion: 'Denominación del área',
+    Puesto_Denominacion: 'Denominación del cargo',
+    Empleados_Carrera: 'Carrera genérica en su cargo',
+    Empleado_Trayectoria: 'Hipervínculo al documento que contenga la trayectoria',
+    Empleado_Sanciones: 'Sanciones administrativas definitivas aplicadas por la autoridad competente (catálogo)',
+    Empleado_Sueldo: 'Monto de la remuneración mensual bruta de conformidad al tabulador de sueldos y salarios que corresponda',
+    Empleado_Sexo: 'Sexo (catálogo)',
+    Empleado_DomicilioTipoVialidad: 'Domicilio oficial: tipo de vialidad (catálogo)',
+    Empleado_DomicilioVialidad: 'Domicilio oficial: nombre de vialidad',
+    Empleado_DomicilioNumExterior: 'Domicilio oficial: número exterior',
+    Empleado_DomicilioNumInterior: 'Domicilio oficial: número interior',
+    Empleado_DomicilioColonia: 'Domicilio oficial: tipo de asentamiento (catálogo)',
+    Empleado_DomicilioAsentamiento: 'Domicilio oficial: nombre del asentamiento',
+    Empleado_DomicilioLocalidad: 'Domicilio oficial: nombre de la localidad',
+    Empleado_DomicilioMunicipio: 'Domicilio oficial: nombre del municipio o delegación',
+    Empleado_DomicilioEstado: 'Domicilio oficial: nombre de la entidad federativa (catálogo)',
+    Empleado_CP: 'Domicilio oficial: código postal',
+    Empleado_NumTelefono: 'Número(s) de teléfono oficial',
+    Empleado_NivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)'
 };
 
 // Función para manejar el clic en una fila
