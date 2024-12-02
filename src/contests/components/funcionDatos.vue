@@ -11,12 +11,12 @@
             <div
                 :class="['flex md:flex-row flex-col', index === 0 ? 'md:w-1/2 w-full' : 'w-full justify-center items-center md:space-x-6']">
                 <div :class="['flex flex-col mt-4 md:mt-0', index === 0 ? 'w-full' : 'md:w-full']">
-                    <el-select v-model="dato.tipo" placeholder="Selecciona el Tipo de Dato" required
-                        style="z-index: 0;">
-                        <el-option label="Sin función" value="Sin función"></el-option>
-                        <el-option label="Publicación de documentos" value="Publicación de documentos"></el-option>
-                        <el-option label="Llenado de datos" value="Llenado de datos"></el-option>
-                    </el-select>
+                    <select v-model="dato.tipo" required
+                        class="block w-full px-3 py-2 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:outline-none">
+                        <option value="" disabled>Selecciona el Tipo de Dato</option>
+                        <option value="Sin función">Texto</option>
+                        <option value="Publicación de documentos">Archivo</option>
+                    </select>
                 </div>
 
                 <div v-if="index > 0" class="flex flex-col w-full md:w-48 mt-4 md:mt-0">

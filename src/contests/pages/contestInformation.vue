@@ -29,6 +29,8 @@
 
     <agregarConcurso v-if="storeNav.getSelectedView() === 'agregarConcurso'"/>
     <detallesConcurso v-if="storeNav.getSelectedView() === 'detallesConcurso'" />
+    <evaluar v-if="storeNav.getSelectedView() === 'evaluar'"/>
+
 
 </template>
 
@@ -42,6 +44,7 @@ storeNav.setSelectedView('ListaConcursos');
 import concursos from '../components/concursos.vue';
 import agregarConcurso from '../components/agregarConcurso.vue';
 import detallesConcurso from '../components/detallesConcurso.vue';
+import evaluar from '../components/evaluar.vue';
 </script>
 
 <style scoped>

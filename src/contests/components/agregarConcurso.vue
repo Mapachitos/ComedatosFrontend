@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-full p-8 space-y-8 min-w-120 overflow-y-auto scroll-tracking bg-gray-50">
+    <div class="w-full h-full p-8 space-y-8 min-w-120 overflow-y-auto scroll-tracking">
         <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-300">
             <div class="gap-y-6 w-full flex flex-col">
 

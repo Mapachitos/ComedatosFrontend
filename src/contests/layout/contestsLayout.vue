@@ -44,7 +44,7 @@
                     <h1 class="text-lg font-bold mx-auto text-white">Mi Aplicación</h1>
                 </header>
 
-                <div class="bg-gray-50 w-full h-full flex flex-col items-center justify-center overflow-hidden p-4">
+                <div class="bg-slate-200 w-full h-full flex flex-col items-center justify-center overflow-hidden p-4">
                     <router-view />
 
                 </div>

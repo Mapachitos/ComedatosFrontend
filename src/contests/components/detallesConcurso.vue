@@ -87,6 +87,7 @@
 
         <detallesEtapa />
         
+        
     </div>
 </template>
 

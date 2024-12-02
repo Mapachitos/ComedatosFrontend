@@ -24,25 +24,20 @@
                 <div class="size-full rounded-lg bg-gray-200">
                     <DataTable :value="productos" scrollable scrollHeight="30em"
                         tableStyle="min-width: 70rem; width: 100%; height: 100%;" class="tablaPrimeVue">
-                        <Column sortable field="clave" header="Clave o nivel de puesto" style="width: 20%;"
+                        <Column sortable field="denominacionCargo" header="Denominación del cargo" style="width: 25%;"
                             class="text-center font-semibold">
                         </Column>
-                        <Column sortable field="denominacionArea"
-                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 30%;"
+                        <Column sortable field="denominacionPuesto"
+                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column field="hipervinculo" header="Perfil" style="width: 20%;" class="text-center">
+                        <Column sortable field="areaAdscripción" header="Ärea de Adscripción" style="width: 20%;" class="text-center">
                         </Column>
-                        <Column header="Concursos" style="width: 15%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar">
-                                        Visualizar
-                                    </button>
-                                </div>
-                            </template>
+                        <Column sortable field="denominacionArea"
+                            header="Denominación del área" style="width: 20%;"
+                            class="text-center">
                         </Column>
-                        <Column header="Empleados" style="width: 15%;" class="text-center">
+                        <Column header="Plazas" style="width: 15%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
                                     <button class="space-x-1 px-3 py-2 botonVisualizar">
@@ -68,7 +63,6 @@ import Column from 'primevue/column';
 // Definición de productos estáticos
 const productos = ref([
     {
-        clave: 'A001',
         denominacionArea: 'Área de Finanzas',
         hipervinculo: 'http://example.com/norma-finanzas',
     },
@@ -101,4 +95,26 @@ const productos = ref([
 
 </script>
 
-<style></style>
+<style>
+.scroll-tabla::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    /* Ancho de la barra de desplazamiento */
+}
+
+.scroll-tabla::-webkit-scrollbar-track {
+    background: #ffffff;
+    /* Color del fondo de la barra de desplazamiento */
+}
+
+.scroll-tabla::-webkit-scrollbar-thumb {
+    background: #e9e9e9;
+    /* Color del relleno de la barra de desplazamiento */
+    /* Radio de borde de la barra de desplazamiento */
+}
+
+.scroll-tabla::-webkit-scrollbar-thumb:hover {
+    @apply bg-color-3;
+    /* Color del relleno de la barra de desplazamiento al pasar el mouse */
+}
+</style>

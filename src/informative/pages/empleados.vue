@@ -21,39 +21,33 @@
                     <DataTable :value="productos" scrollable scrollHeight="100%"
                         tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue"
                         @row-click="handleRowClick">
-                        <Column sortable field="clave" header="RFC" style="width: 10%;"
-                            class="text-center font-semibold"></Column>
-                        <Column sortable field="denominacionArea" header="Nombre(s) de la persona servidora pública"
-                            style="width: 15%;" class="text-center"></Column>
-                        <Column sortable field="denominacionNorma"
-                            header="Primer apellido de la persona servidora pública" style="width: 10%;"
+                        <Column sortable field="nombreEmpleado" header="Nombre de la persona servidora pública"
+                            style="width: 10%;" class="text-center">
+                            <template #body="slotProps">
+                                {{ slotProps.data.nombreEmpleado + ' ' + slotProps.data.apellidoPaterno + ' ' + slotProps.data.apellidoMaterno }}
+                            </template></Column>
+                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 15%;"
+                            class="text-center">
+                        </Column>
+                        <Column sortable field="denominacionCargo" header="Denominación del cargo" style="width: 15%;"
+                            class="text-center">
+                        </Column>
+                        <Column sortable field="carrera" header="Carrera genérica en su cargo" style="width: 10%;"
                             class="text-center"></Column>
-                        <Column sortable field="hipervinculo" header="Segundo apellido de la persona servidora pública"
-                            style="width: 10%;" class="text-center"></Column>
-                        <Column sortable field="sexo" header="Sexo (catálogo)" style="width: 10%;" class="text-center">
+                        <Column sortable field="trayectoria"
+                            header="Hipervínculo al documento que contenga la trayectoria" style="width: 20%;"
+                            class="text-center">
                         </Column>
-                        <Column sortable field="fechaAltaCargo" header="Fecha de alta en el cargo" style="width: 10%;"
-                            class="text-center"></Column>
-                        <Column sortable field="sueldos" header="Sueldos" style="width: 8.75%;" class="text-center">
+                        <Column sortable field="sanciones" header="Sanciones administrativas" style="width: 10%;"
+                            class="text-center">
                         </Column>
-                        <Column header="Perfil" style="width: 8.75%;" class="text-center">
+                        <Column sortable field="sueldo" header="Monto de la remuneración mensual bruta"
+                            style="width: 11.25%;" class="text-center">
+                        </Column>
+                        <Column header="Detalles" style="width: 8.75%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar" @click.stop>Visualizar</button>
-                                </div>
-                            </template>
-                        </Column>
-                        <Column header="Sanciones" style="width: 8.75%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar" @click.stop>Visualizar</button>
-                                </div>
-                            </template>
-                        </Column>
-                        <Column header="Contratos" style="width: 8.75%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar" @click.stop>Visualizar</button>
+                                    <button class="space-x-1 px-3 py-2 botonVisualizar">Visualizar</button>
                                 </div>
                             </template>
                         </Column>
@@ -62,7 +56,8 @@
             </div>
         </div>
 
-        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers" @close="showModal = false" />
+        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers"
+            @close="showModal = false" />
     </div>
 </template>
 
@@ -76,39 +71,81 @@ import modalEmpleados from '../components/modalEmpleados.vue';
 
 const productos = ref([
     {
-        clave: 'RFC001',
-        denominacionArea: 'Juan Carlos',
-        denominacionNorma: 'Pérez',
-        hipervinculo: 'Gómez',
+        nombreEmpleado: 'Juan Pablo',
+        apellidoPaterno: 'Pérez',
+        apellidoMaterno: 'Robles',
+        denominacionArea: 'Recursos Humanos',
+        denominacionCargo: 'Gerente',
         sexo: 'Masculino',
-        fechaAltaCargo: '2023-05-15',
-        viabilidad: 'Calle',
-        sueldos: '50000',
+        domicilioTipoViabilidad: 'Avenida',
+        domicilioNombreViabilidad: 'Insurgentes',
+        numeroExterior: 'S/N',
+        numeroInterior: '123',
+        nombreColonia: 'Adolfo López Mateos',
+        tipoAsentamiento: 'Colonia',
+        localidad: 'Chetumal',
+        municipio: 'Othón P. Blanco',
+        estado : 'Quintana Roo',
+        cp : '77000',
+        celular : '9831234567',
+        nivelEstudios : 'Maeestría',
+        carrera: 'Administración',
+        trayectoria: 'http://example.com/trayectoria/juan-perez',
+        sanciones: 'Ninguna',
+        sueldo: '50,000 MXN'
     },
     {
-        clave: 'RFC002',
-        denominacionArea: 'María Fernanda',
-        denominacionNorma: 'López',
-        hipervinculo: 'Hernández',
+        nombreEmpleado: 'María',
+        apellidoPaterno: 'López',
+        apellidoMaterno: 'García',
+        denominacionArea: 'Finanzas',
+        denominacionCargo: 'Analista',
         sexo: 'Femenino',
-        fechaAltaCargo: '2021-09-10',
-        viabilidad: 'Avenida',
-        sueldos: '60000',
-    },
+        domicilioTipoViabilidad: 'Avenida',
+        domicilioNombreViabilidad: 'Insurgentes',
+        numeroExterior: 'S/N',
+        numeroInterior: '123',
+        nombreColonia: 'Adolfo López Mateos',
+        tipoAsentamiento: 'Colonia',
+        localidad: 'Chetumal',
+        municipio: 'Othón P. Blanco',
+        estado : 'Quintana Roo',
+        cp : '77000',
+        celular : '9831234567',
+        nivelEstudios : 'Licenciatura',
+        carrera: 'Contabilidad',
+        trayectoria: 'http://example.com/trayectoria/maria-lopez',
+        sanciones: 'Ninguna',
+        sueldo: '40,000 MXN'
+    }
 ]);
 
 const showModal = ref(false);
 const selectedRow = ref({});
 
 const headers = {
-    clave: 'RFC',
-    denominacionArea: 'Nombre(s) de la persona servidora pública',
-    denominacionNorma: 'Primer apellido de la persona servidora pública',
-    hipervinculo: 'Segundo apellido de la persona servidora pública',
+    nombreEmpleado: 'Nombre(s) de la persona servidora pública',
+    apellidoPaterno: 'Primer apellido de la persona servidora pública',
+    apellidoMaterno: 'Segundo apellido de la persona servidora pública',
+    denominacionArea: 'Denominación del área',
+    denominacionCargo: 'Denominación del cargo',
+    carrera: 'Carrera genérica en su cargo',
+    trayectoria: 'Hipervínculo al documento que contenga la trayectoria',
+    sanciones: 'Sanciones administrativas definitivas aplicadas por la autoridad competente (catálogo)',
+    sueldo: 'Monto de la remuneración mensual bruta de conformidad al tabulador de sueldos y salarios que corresponda',
     sexo: 'Sexo (catálogo)',
-    fechaAltaCargo: 'Fecha de alta en el cargo',
-    viabilidad: 'Domicilio oficial: Tipo de vialidad (catálogo)',
-    sueldos: 'Sueldos',
+    domicilioTipoViabilidad: 'Domicilio oficial: tipo de vialidad (catálogo)',
+    domicilioNombreViabilidad: 'Domicilio oficial: nombre de vialidad',
+    numeroExterior: 'Domicilio oficial: número exterior',
+    numeroInterior: 'Domicilio oficial: número interior',
+    nombreColonia: 'Domicilio oficial: tipo de asentamiento (catálogo)',
+    tipoAsentamiento: 'Domicilio oficial: nombre del asentamiento',
+    localidad: 'Domicilio oficial: nombre de la localidad',
+    municipio: 'Domicilio oficial: nombre del municipio o delegación',
+    estado: 'Domicilio oficial: nombre de la entidad federativa (catálogo)',
+    cp: 'Domicilio oficial: código postal',
+    celular: 'Número(s) de teléfono oficial',
+    nivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)'
 };
 
 // Función para manejar el clic en una fila

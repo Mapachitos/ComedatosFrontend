@@ -31,12 +31,13 @@
                 <label for="tipoFuncion" class="text-lg font-semibold text-gray-700">Función:</label>
                 <div class="flex md:flex-row flex-col w-full justify-center items-center md:space-x-6">
                     <div class="flex flex-col w-full mt-4 md:mt-0">
-                        <el-select v-model="tipoFuncion" id="tipoFuncion" placeholder="Selecciona la función de la etapa" required
-                            style="z-index: 0;">
-                            <el-option label="Sin Función" value="Sin función"></el-option>
-                            <el-option label="Publicación de Documentos" value="Publicación de documentos"></el-option>
-                            <el-option label="Llenado de Datos" value="Llenado de datos"></el-option>
-                        </el-select>
+                        <select v-model="tipoFuncion" id="tipoFuncion" required
+                            class="block w-full px-3 py-2 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:outline-none">
+                            <option value="Sin función">Sin Función</option>
+                            <option value="Publicación de documentos">Publicación de Documentos</option>
+                            <option value="Llenado de datos">Llenado de Datos</option>
+                        </select>
+
                     </div>
 
                     <div class="flex flex-col w-full md:w-48 mt-4 md:mt-0">

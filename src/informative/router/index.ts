@@ -6,6 +6,7 @@ export const informativeRoute: RouteRecordRaw = {
     path: `/${ROUTE_NAME}`,
     name: ROUTE_NAME,
     component: () => import("@/informative/layout/informativeLayout.vue"),
+    redirect: `/${ROUTE_NAME}/areas`, // Redirección a "areas"
     children:[
         {
             path: "areas",

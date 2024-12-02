@@ -25,30 +25,18 @@
                 <div class="size-full rounded-lg bg-gray-200">
                     <DataTable :value="productos" scrollable scrollHeight="30em"
                         tableStyle="min-width: 70rem; width: 100%; height: 100%;" class="tablaPrimeVue">
-                        <Column sortable field="clave" header="Clave del área" style="width: 10%;"
-                            class="text-center font-semibold">
-                        </Column>
-                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 15%;"
+                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 25%;"
                             class="text-center">
                         </Column>
                         <Column sortable field="denominacionNorma"
                             header="Denominación de la norma que establece atribuciones, responsabilidades y/o funciones y el fundamento legal (artículo y/o fracción)"
-                            style="width: 25%;" class="text-center">
+                            style="width: 30%;" class="text-center">
                         </Column>
                         <Column field="hipervinculo"
                             header="Hipervínculo al fragmento de la norma que establece las facultades que correspondan a cada área"
-                            style="width: 25%;" class="text-center">
+                            style="width: 30%;" class="text-center">
                         </Column>
-                        <Column header="Empleados" style="width: 10%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar">
-                                        Visualizar
-                                    </button>
-                                </div>
-                            </template>
-                        </Column>
-                        <Column header="Puestos" style="width: 10%;" class="text-center">
+                        <Column header="Puestos" style="width: 15%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
                                     <button class="space-x-1 px-3 py-2 botonVisualizar">
@@ -74,19 +62,16 @@ import Column from 'primevue/column';
 // Definición de productos estáticos
 const productos = ref([
     {
-        clave: 'A001',
         denominacionArea: 'Área de Finanzas',
         denominacionNorma: 'Norma de Responsabilidad Financiera, Artículo 5, Fracción II',
         hipervinculo: 'http://example.com/norma-finanzas',
     },
     {
-        clave: 'A002',
         denominacionArea: 'Área de Recursos Humanos',
         denominacionNorma: 'Norma de Gestión de Personal, Artículo 12, Fracción IV',
         hipervinculo: 'http://example.com/norma-recursos-humanos',
     },
     {
-        clave: 'A003',
         denominacionArea: 'Área de Tecnologías de la Información',
         denominacionNorma: 'Norma de Seguridad Informática, Artículo 8, Fracción I',
         hipervinculo: 'http://example.com/norma-ti',

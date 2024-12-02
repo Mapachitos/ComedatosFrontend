@@ -4,7 +4,7 @@
                 <h1 class="text-lg md:text-xl text-gray-800 text-center flex-1">
                     <span class="font-bold text-color-2">Etapa 1</span>
                 </h1>
-                <button
+                <button @click="storeNav.setSelectedView('evaluar');"
                     class="px-3 py-2 text-white active:text-gray-200 bg-color-2 hover:brightness-125 active:brightness-75 font-medium rounded-md">
                     Evaluar
                 </button>
@@ -22,4 +22,12 @@
                 </div>
             </div>
         </div>
+
+        
 </template>
+
+<script setup lang="ts">
+//Store
+import { navInfoStore } from '@/stores/NavInfoStore';
+const storeNav = navInfoStore();
+</script>
