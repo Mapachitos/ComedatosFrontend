@@ -22,8 +22,8 @@
             <div class="w-full h-full relative overflow-hidden">
 
                 <div class="size-full rounded-lg bg-gray-200">
-                    <DataTable :value="productos" scrollable scrollHeight="30em"
-                        tableStyle="min-width: 70rem; width: 100%; height: 100%;" class="tablaPrimeVue">
+                    <DataTable :value="productos" scrollable scrollHeight="100%"
+                        tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue">
                         <Column sortable field="denominacionCargo" header="Denominación del cargo" style="width: 25%;"
                             class="text-center font-semibold">
                         </Column>
@@ -63,35 +63,56 @@ import Column from 'primevue/column';
 // Definición de productos estáticos
 const productos = ref([
     {
+        denominacionCargo: 'Gerente Financiero',
+        denominacionPuesto: 'Gerente de Finanzas (Perspectiva de Género)',
+        areaAdscripción: 'Unidad de Transparencia, Acceso a la Información Pública y Protección de Datos Personales',
         denominacionArea: 'Área de Finanzas',
         hipervinculo: 'http://example.com/norma-finanzas',
     },
     {
-        clave: 'A002',
+        denominacionCargo: 'Especialista en Recursos Humanos',
+        denominacionPuesto: 'Especialista de Recursos Humanos',
+        areaAdscripción: 'Recursos Humanos',
         denominacionArea: 'Área de Recursos Humanos',
         hipervinculo: 'http://example.com/norma-recursos-humanos',
     },
     {
-        clave: 'A003',
+        denominacionCargo: 'Desarrollador de Software',
+        denominacionPuesto: 'Desarrollador Backend',
+        areaAdscripción: 'TI',
         denominacionArea: 'Área de Tecnologías de la Información',
         hipervinculo: 'http://example.com/norma-ti',
     },
     {
-        clave: 'A004',
+        denominacionCargo: 'Analista de Marketing',
+        denominacionPuesto: 'Analista de Campañas',
+        areaAdscripción: 'Marketing',
         denominacionArea: 'Área de Marketing',
         hipervinculo: 'http://example.com/norma-marketing',
     },
     {
-        clave: 'A005',
+        denominacionCargo: 'Representante de Ventas',
+        denominacionPuesto: 'Ejecutivo de Ventas',
+        areaAdscripción: 'Comercial',
         denominacionArea: 'Área de Ventas',
         hipervinculo: 'http://example.com/norma-ventas',
     },
     {
-        clave: 'A006',
+        denominacionCargo: 'Coordinador de Logística',
+        denominacionPuesto: 'Coordinador de Distribución',
+        areaAdscripción: 'Operaciones',
         denominacionArea: 'Área de Logística',
         hipervinculo: 'http://example.com/norma-logistica',
     },
+    {
+        denominacionCargo: 'Analista Financiero',
+        denominacionPuesto: 'Analista de Finanzas',
+        areaAdscripción: 'Finanzas',
+        denominacionArea: 'Área de Finanzas',
+        hipervinculo: 'http://example.com/norma-analista-finanzas',
+    },
 ]);
+
 
 </script>
 

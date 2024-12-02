@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-full p-8 space-y-8 min-w-120 overflow-y-auto scroll-tracking">
+    <div class="w-full h-full p-8 space-y-8 min-w-120 overflow-y-auto scroll-form">
         <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-300">
             <div class="gap-y-6 w-full flex flex-col">
 
@@ -112,27 +112,5 @@ const removeStage = (index: number) => {
 </script>
 
 <style scoped>
-.scroll-tracking::-webkit-scrollbar {
-    width: 8px;
-}
 
-.scroll-tracking::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.scroll-tracking::-webkit-scrollbar-thumb {
-    background: #cac9c9;
-    border-radius: 10px;
-}
-
-.scroll-tracking::-webkit-scrollbar-thumb:hover {
-    background: #807f7f;
-}
-
-.fixed-button {
-    position: fixed;
-    bottom: 52px;
-    right: 25px;
-}
 </style>
