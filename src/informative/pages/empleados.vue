@@ -32,16 +32,16 @@
                         <Column sortable field="Puesto_Denominacion" header="Denominación del cargo" style="width: 15%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Empleados_Carrera" header="Carrera genérica en su cargo" style="width: 10%;"
+                        <Column sortable field="Sanciones_Coincidencias.0.Empleados_Carrera" header="Carrera genérica en su cargo" style="width: 10%;" 
                             class="text-center"></Column>
-                        <Column sortable field="Empleado_Trayectoria"
+                        <Column sortable field="Sanciones_Coincidencias.0.Empleado_Trayectoria"
                             header="Hipervínculo al documento que contenga la trayectoria" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Empleado_Sanciones" header="Sanciones administrativas" style="width: 10%;"
+                        <Column sortable field="Sanciones_Coincidencias.0.Empleado_Sanciones" header="Sanciones administrativas" style="width: 10%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Empleado_Sueldo" header="Monto de la remuneración mensual bruta"
+                        <Column sortable field="Sueldos_Coincidencias.0.Empleado_Sueldo" header="Monto de la remuneración mensual bruta"
                             style="width: 11.25%;" class="text-center">
                         </Column>
                         <Column header="Detalles" style="width: 8.75%;" class="text-center">
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers"
+        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers" :headersArray="headersArray" :headersArray2="headersArray2"
             @close="showModal = false" />
     </div>
 </template>
@@ -78,7 +78,7 @@ const selectedRow = ref({});
 onMounted(async () => {
     empleados.value = await getEmpleados();
 });
-
+/*
 const headers = {
     Empleado_Nombre: 'Nombre(s) de la persona servidora pública',
     Empleado_Ap1: 'Primer apellido de la persona servidora pública',
@@ -102,7 +102,88 @@ const headers = {
     Empleado_CP: 'Domicilio oficial: código postal',
     Empleado_NumTelefono: 'Número(s) de teléfono oficial',
     Empleado_NivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)'
+};*/
+/*
+        _id: 'ID del empleado',
+    Puesto_Clave: 'Clave del puesto',
+    Puesto_Denominacion: 'Denominación del puesto',
+    Empleado_Nombre: 'Nombre del empleado',
+    Empleado_Ap1: 'Primer apellido del empleado',
+    Empleado_Ap2: 'Segundo apellido del empleado',
+    Empleado_Sexo: 'Sexo del empleado',
+    Area_Denominacion: 'Denominación del área',
+    Empleado_FechaAlta: 'Fecha de alta del empleado',
+    Empleado_DomicilioTipoVialidad: 'Tipo de vialidad del domicilio',
+    Empleado_DomicilioVialidad: 'Nombre de la vialidad del domicilio',
+    Empleado_DomicilioNumExterior: 'Número exterior del domicilio',
+    Empleado_DomicilioNumInterior: 'Número interior del domicilio',
+    Empleado_DomicilioColonia: 'Colonia del domicilio',
+    Empleado_DomicilioAsentamiento: 'Asentamiento del domicilio',
+    Empleado_DomicilioLocalidad: 'Localidad del domicilio',
+    Empleado_DomicilioMunicipio: 'Municipio del domicilio',
+    Empleado_DomicilioEstado: 'Estado del domicilio',
+    Empleado_CP: 'Código postal del domicilio',
+    Empleado_NumTelefono: 'Número de teléfono del empleado',
+    Empleado_Extension: 'Extensión del teléfono del empleado',
+    Empleado_Sanciones: 'Sanciones del empleado',
+*/
+const headersArray = {
+    _id: 'ID del empleado',
+    Tipo_Integrante: 'Tipo de integrante',
+    Puesto_Clave: 'Clave del puesto en coincidencias de sueldos',
+    Puesto_Denominacion: 'Denominación del puesto en coincidencias de sueldos',
+    Puesto_Cargo: 'Cargo del puesto en coincidencias de sueldos',
+    Area_Adscripcion: 'Área de adscripción en coincidencias de sueldos',
+    Empelado_Nombre: 'Nombre del empleado en coincidencias de sueldos',
+    Empleado_Ap1: 'Primer apellido del empleado en coincidencias de sueldos',
+    Empleado_Ap2: 'Segundo apellido del empleado en coincidencias de sueldos',
+    Empelado_Sexo: 'Sexo del empleado en coincidencias de sueldos',
+    Empleado_Sueldo: 'Sueldo del empleado en coincidencias de sueldos'
 };
+const headersArray2 = {
+    _id: 'ID del empleado',
+    Puesto_DenominacionGenero: 'Denominación de género del puesto en coincidencias de sanciones',
+    Puesto_Denominacion: 'Denominación del puesto en coincidencias de sanciones',
+    Empleado_Nombre: 'Nombre del empleado en coincidencias de sanciones',
+    Empleado_Ap1: 'Primer apellido del empleado en coincidencias de sanciones',
+    Empleado_Ap2: 'Segundo apellido del empleado en coincidencias de sanciones',
+    Empleado_Sexo: 'Sexo del empleado en coincidencias de sanciones',
+    Area_Adscripcion: 'Área de adscripción en coincidencias de sanciones',
+    Empleado_NivelEstudios: 'Nivel de estudios del empleado en coincidencias de sanciones',
+    Empleados_Carrera: 'Carrera del empleado en coincidencias de sanciones',
+    Empleado_Experiencia: 'Experiencia del empleado en coincidencias de sanciones',
+    Empleado_Trayectoria: 'Trayectoria del empleado en coincidencias de sanciones',
+    Empleado_Sanciones: 'Sanciones del empleado en coincidencias de sanciones'
+};
+const headers = {
+    _id: 'ID del empleado',
+    Puesto_Clave: 'Clave del puesto',
+    Empleado_FechaAlta: 'Fecha de alta del empleado',
+    Empleado_Nombre: 'Nombre(s) de la persona servidora pública',
+    Empleado_Ap1: 'Primer apellido de la persona servidora pública',
+    Empleado_Ap2: 'Segundo apellido de la persona servidora pública',
+    Area_Denominacion: 'Denominación del área',
+    Puesto_Denominacion: 'Denominación del cargo',
+    Empleados_Carrera: 'Carrera genérica en su cargo',
+    Empleado_Trayectoria: 'Hipervínculo al documento que contenga la trayectoria',
+    Empleado_Sanciones: 'Sanciones administrativas definitivas aplicadas por la autoridad competente (catálogo)',
+    Empleado_Sueldo: 'Monto de la remuneración mensual bruta de conformidad al tabulador de sueldos y salarios que corresponda',
+    Empleado_Sexo: 'Sexo (catálogo)',
+    Empleado_DomicilioTipoVialidad: 'Tipo de vialidad (catálogo)',
+    Empleado_DomicilioVialidad: 'Nombre de vialidad',
+    Empleado_DomicilioNumExterior: 'Número exterior',
+    Empleado_DomicilioNumInterior: 'Número interior',
+    Empleado_DomicilioColonia: 'Tipo de asentamiento (catálogo)',
+    Empleado_DomicilioAsentamiento: 'Nombre del asentamiento',
+    Empleado_DomicilioLocalidad: 'Nombre de la localidad',
+    Empleado_DomicilioMunicipio: 'Nombre del municipio o delegación',
+    Empleado_DomicilioEstado: 'Nombre de la entidad federativa (catálogo)',
+    Empleado_CP: 'Código postal',
+    Empleado_NumTelefono: 'Número(s) de teléfono oficial',
+    Empleado_NivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)',
+    Empleado_Extension: 'Extensión del teléfono del empleado', 
+};
+
 
 // Función para manejar el clic en una fila
 function handleRowClick(event: any) {
