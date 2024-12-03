@@ -13,6 +13,11 @@ export const contestsRouter: RouteRecordRaw = {
             name: "contestInformation",
             component: () => import("@/contests/pages/contestInformation.vue"),
         },
+        {
+            path: "createTemplate",
+            name: "createTemplate",
+            component: () => import("@/contests/pages/createTemplate.vue"),
+        },
     ]
 }
 

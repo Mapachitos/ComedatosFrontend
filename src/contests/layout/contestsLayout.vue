@@ -19,7 +19,7 @@
                 </RouterLink>
 
                 <!-- Enlace a Plantilla -->
-                <RouterLink :to="{ name: 'areas' }"
+                <RouterLink :to="{ name: 'createTemplate' }"
                             class="flex items-center w-full py-4 px-8 rounded hover:bg-color-3"
                             exact-active-class="bg-color-3/30">
                     <i class="pi pi-book text-xl"></i>

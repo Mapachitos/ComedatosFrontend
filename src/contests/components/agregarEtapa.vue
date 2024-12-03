@@ -41,14 +41,14 @@
 
                     </div>
 
-                    <div class="flex flex-col w-full md:w-48 mt-4 md:mt-0">
+                    <div v-if="!isFirstStageNonDeletable" class="flex flex-col w-full md:w-48 mt-4 md:mt-0">
+                        <!-- Solo mostrar el botón de "Quitar Etapa" si no es la primera etapa -->
                         <button @click="removeStage"
                             class="botonCancelar">Quitar Etapa
                         </button>
                     </div>
                 </div>
 
-               
             </div>
 
             <funcionDatos v-if="tipoFuncion === 'Llenado de datos'" />
@@ -63,11 +63,15 @@ import { ref } from 'vue';
 import funcionDocumentos from './funcionDocumentos.vue';
 import funcionDatos from './funcionDatos.vue';
 
-const props = defineProps<{ index: number }>();
+const props = defineProps<{ 
+  index: number; 
+  isFirstStageNonDeletable: boolean;  // Recibe la propiedad que indica si la etapa es la primera 
+}>();
 
 // Evento para quitar la etapa
 const emit = defineEmits(['quitar']);
 
+// Función para emitir la eliminación de la etapa
 function removeStage() {
     emit('quitar', props.index); // Emitir el índice
 }
