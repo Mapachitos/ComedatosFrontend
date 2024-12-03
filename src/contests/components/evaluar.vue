@@ -5,36 +5,27 @@
         <div class="flex justify-center mb-4">
             <h1 class="text-xl font-bold text-color-2">Nombre del Concurso</h1>
         </div>
-       
+
 
         <div class="flex flex-col w-full h-full space-y-2">
 
-            <div class="flex md:flex-row flex-col w-full md:space-x-2 space-y-2 md:space-y-0">
-                <div
-                    class="w-full flex flex-col md:flex-row items-center justify-end md:space-x-8 space-y-2 md:space-y-0">
-                    <!--Div 1-->
-                    <div
-                        class="w-full min-h-10 h-10 max-h-10 md:w-auto flex flex-row justify-between md:justify-center items-center space-x-8">
 
-                        <div class="w-48 h-full flex items-center">
-                            <button
-                                class="px-3 py-2 text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md md:text-sm text-xs outline-none">
-                                Finalizar Etapa
-                            </button>
-                        </div>
+            <div class="w-full flex flex-row items-center justify-between md:space-x-6">
 
-                        
-                    </div>
-                    <div class="flex md:flex-row flex-col w-full md:space-x-2 space-y-2 md:space-y-0">
-                        <input type="text" placeholder="Buscar Proyecto..." class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
-                        <select class="p-2 min-h-10 h-10 min-w-48 text-sm outline-none border-2 border-gray-400 bg-gray-00 focus:border-gray-600 rounded-md transition-colors duration-200 ease-in-out">
-                            <option value="global">Todos</option>
-                        </select>
-                    </div>
-
-
+                <div class="w-48 h-full flex items-center">
+                    <button
+                        class="px-3 md:py-2 py-3 text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md md:text-sm text-xs outline-none">
+                        Finalizar Etapa
+                    </button>
                 </div>
+
+
+
+                <input type="text" placeholder="Buscar Proyecto..."
+                    class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
+
             </div>
+
 
 
             <div class="w-full h-full relative overflow-hidden">
@@ -111,6 +102,3 @@ const productos = ref([
 ]);
 
 </script>
-
-
-<style></style>

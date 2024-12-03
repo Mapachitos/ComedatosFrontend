@@ -4,28 +4,24 @@
             Nombre y Tipo de Dato:
         </label>
         <div v-for="(dato, index) in datos" :key="index"
-            class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 mb-4">
+            class="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0 mb-4">
             <!-- Input de nombre -->
-            <input type="text" v-model="dato.nombre"
-                class="inputStyle"
-                placeholder="Ingrese el nombre del dato" required />
+            <input type="text" v-model="dato.nombre" class="inputStyle" placeholder="Ingrese el nombre del dato"
+                required />
 
-            <select v-model="dato.tipo" required
-                class="inputStyle">
+            <select v-model="dato.tipo" required class="inputStyle">
                 <option value="" disabled>Selecciona el Tipo de Dato</option>
                 <option value="Sin función">Texto</option>
                 <option value="Publicación de documentos">Archivo</option>
             </select>
 
-            <button v-if="index > 0" @click="removeDato(index)"
-                class="botonCancelar">
+            <button v-if="index > 0" @click="removeDato(index)" class="botonCancelar">
                 Eliminar
             </button>
         </div>
 
         <div class="flex justify-center mt-6">
-            <button @click="addDato"
-                class="botonAgregar">
+            <button @click="addDato" class="botonAgregar">
                 Agregar Dato
             </button>
         </div>

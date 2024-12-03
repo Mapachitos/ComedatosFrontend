@@ -51,6 +51,22 @@
 }
 
 /* Estilos div label/input columna*/
+
+
+/* Estilos h1 mostrar datos */
+.h1DatosMostrar {
+    @apply text-sm sm:text-base font-bold text-gray-800 w-full text-wrap break-words text-justify;
+}
+
+/* Estilos h1 mostrar datos*/
+
+
+/* Estilos div mostrar datos */
+.divDatosMostrar {
+    @apply px-3 py-2 bg-gray-100 rounded-md;
+}
+
+/* Estilos div mostrar datos*/
 /* Estilos formulario */
 
 
@@ -68,6 +84,13 @@
 }
 
 /* Estilos botón añadir/agregar */
+
+/* Estilos botón editar */
+.botonEditar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-color-4 hover:brightness-125 active:brightness-75 font-medium rounded-md;
+}
+
+/* Estilos botón editar */
 
 
 /* Estilos botón guardar/registrar */

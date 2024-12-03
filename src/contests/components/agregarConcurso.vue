@@ -16,50 +16,42 @@
 
                 <!-- Descripción -->
                 <div class="divDatos">
-                    <label for="descripcion"
-                        class="labelStyle">Descripción:</label>
-                    <textarea id="descripcion" rows="3"
-                        class="inputStyle"
+                    <label for="descripcion" class="labelStyle">Descripción:</label>
+                    <textarea id="descripcion" rows="3" class="inputStyle"
                         placeholder="Ingrese la Descripción del Concurso" required></textarea>
                 </div>
 
                 <!-- Área -->
                 <div class="divDatos">
                     <label for="area" class="labelStyle">Área:</label>
-                    <input type="text" id="area"
-                        class="inputStyle"
-                        placeholder="Ingrese el Área" required />
+                    <input type="text" id="area" class="inputStyle" placeholder="Ingrese el Área" required />
                 </div>
 
                 <!-- Puestos -->
                 <div class="divDatos">
                     <label for="puestos" class="labelStyle">Puesto:</label>
-                    <input type="text" id="puestos"
-                        class="inputStyle"
-                        placeholder="Ingrese el Puesto Disponible" required />
+                    <input type="text" id="puestos" class="inputStyle" placeholder="Ingrese el Puesto Disponible"
+                        required />
                 </div>
 
                 <!-- Ubicación y Sueldo -->
                 <div class="divDatos2">
                     <div class="flex flex-col w-full md:w-3/5 space-y-2">
                         <label for="ubicacion" class="labelStyle ">Ubicación:</label>
-                        <input type="text" id="ubicacion"
-                            class="inputStyle"
-                            placeholder="Ingrese la Ubicación" required />
+                        <input type="text" id="ubicacion" class="inputStyle" placeholder="Ingrese la Ubicación"
+                            required />
                     </div>
                     <div class="flex flex-col w-full md:w-2/5 space-y-2">
                         <label for="sueldo" class="labelStyle ">Sueldo:</label>
-                        <input type="text" id="sueldo"
-                            class="inputStyle"
-                            placeholder="Ingrese el Sueldo Ofrecido" required />
+                        <input type="text" id="sueldo" class="inputStyle" placeholder="Ingrese el Sueldo Ofrecido"
+                            required />
                     </div>
                 </div>
 
                 <!-- Requisitos -->
                 <div class="divDatos">
                     <label for="requisitos" class="labelStyle">Requisitos:</label>
-                    <textarea id="requisitos" rows="3"
-                        class="inputStyle"
+                    <textarea id="requisitos" rows="3" class="inputStyle"
                         placeholder="Ingrese los Requisitos del Concurso" required></textarea>
                 </div>
             </div>
@@ -71,16 +63,13 @@
 
         <!-- Botones fuera del formulario -->
         <div class="flex justify-around space-x-4">
-            <button @click="addNewStage"
-                class="botonAgregar">
+            <button @click="addNewStage" class="botonAgregar">
                 Nueva Etapa
             </button>
-            <button
-                class="botonCargar">
+            <button class="botonCargar">
                 Cargar Plantilla
             </button>
-            <button v-if="etapas.length > 0"
-                class="botonGuardar">
+            <button v-if="etapas.length > 0" class="botonGuardar">
                 Registrar Concurso
             </button>
             <button @click="storeNav.setSelectedView('ListaConcursos');"
@@ -110,5 +99,3 @@ const removeStage = (index: number) => {
 };
 
 </script>
-
-<style scoped></style>
