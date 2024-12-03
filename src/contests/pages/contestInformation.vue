@@ -22,7 +22,7 @@
         </div>
 
         <!--Aqui se agregan los concursos-->
-        <div class="relative w-full flex flex-col flex-grow overflow-auto px-2 py-6 z-0 space-y-10 scroll-tracking">
+        <div class="relative w-full flex flex-col flex-grow overflow-auto px-2 py-6 z-0 space-y-8 scroll-tracking">
             <concursos />
         </div>
     </div>

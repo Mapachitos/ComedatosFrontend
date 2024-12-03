@@ -24,13 +24,13 @@
                     <div class="flex flex-col h-3/5 justify-start space-y-8">
 
                         <div class="flex flex-row justify-center space-x-2">
-                            <div @click="selected = 'login'" :class="selected === 'login' ? 'bg-color-3' : 'bg-color-1/20'" class="flex w-full h-16 items-center justify-center rounded-md text-white hover:bg-color-3 transition duration-200">
+                            <div @click="selected = 'login'" :class="selected === 'login' ? 'bg-color-3' : 'bg-color-1/20'" class="opcionesLogin">
                                 <p :class="selected === 'login' ? 'text-xs font-bold text-center' : 'text-xs font-semibold text-center'">Iniciar Sesión</p>
                             </div>
-                            <div @click="selected = 'createUser'" :class="selected === 'createUser' ? 'bg-color-3' : 'bg-color-1/20'" class="flex w-full h-16 items-center justify-center rounded-md text-white hover:bg-color-3 transition duration-200">
+                            <div @click="selected = 'createUser'" :class="selected === 'createUser' ? 'bg-color-3' : 'bg-color-1/20'" class="opcionesLogin">
                                 <p :class="selected === 'createUser' ? 'text-xs font-bold text-center' : 'text-xs font-semibold text-center'">Crear Usuario</p>
                             </div>
-                            <div @click="selected = 'recoverPassword'" :class="selected === 'recoverPassword' ? 'bg-color-3' : 'bg-color-1/20'" class="flex w-full h-16 items-center justify-center rounded-md text-white hover:bg-color-3 transition duration-200">
+                            <div @click="selected = 'recoverPassword'" :class="selected === 'recoverPassword' ? 'bg-color-3' : 'bg-color-1/20'" class="opcionesLogin">
                                 <p :class="selected === 'recoverPassword' ? 'text-xs font-bold text-center' : 'text-xs font-semibold text-center'">Recuperar Contraseña</p>
                             </div>
                         </div>

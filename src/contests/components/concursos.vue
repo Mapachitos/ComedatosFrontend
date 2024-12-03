@@ -1,15 +1,14 @@
 <template>
     <div v-for="concurso in concursos" :key="concurso.id" @click="storeNav.setSelectedView('detallesConcurso');"
-        class="relative z-0 flex flex-col p-4 w-full min-w-96 rounded-xl shadow-lg border border-gray-300 bg-white transition-all hover:scale-[1.01] duration-100 active:brightness-95 space-y-3">
+        class="relative z-0 flex flex-col p-4 w-full min-w-96 rounded-lg shadow-lg border border-gray-300 bg-white transition-all hover:scale-[1.01] duration-100 active:brightness-95 space-y-3">
 
         <div class="w-full text-center mb-4">
-            <h1 class="text-lg md:text-xl text-gray-800"><span class="font-bold text-color-2"> Nombre del
+            <h1 class="text-md md:text-xl text-gray-800"><span class="font-bold text-color-2"> Nombre del
                     Concurso:</span> {{ concurso.nombre }}</h1>
         </div>
 
         <!-- Información del Concurso -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
 
             <div class="p-4 bg-gray-100 rounded-lg">
                 <p class="text-gray-600"><span class="font-bold text-gray-800">Área:</span> {{ concurso.area }}</p>

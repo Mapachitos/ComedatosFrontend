@@ -4,20 +4,8 @@
 
         <div class="flex flex-col w-full h-full space-y-2">
 
-
-            <div class="flex md:flex-row flex-col w-full md:space-x-2 space-y-2 md:space-y-0">
-
-                <select
-                    class="p-2 min-h-10 h-10 min-w-48 text-sm outline-none border-2 border-gray-400 bg-gray-00 focus:border-gray-600 rounded-md transition-colors duration-200 ease-in-out">
-                    <option value="global">Clave o nivel de puesto</option>
-                    <option value="Proyecto.Proyecto_Nombre">Otra</option>
-                    <!-- <option value="Proyecto.Proyecto_Estatus">Estatus</option> -->
-                    <option value="Profesor_Asesor.Profesor_Nombre">Otra</option>
-                </select>
-                <input type="text" placeholder="Buscar..."
-                    class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
-            </div>
-
+            <input type="text" placeholder="Buscar..."
+                class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
 
             <div class="w-full h-full relative overflow-hidden">
 
@@ -31,10 +19,10 @@
                             header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="areaAdscripción" header="Ärea de Adscripción" style="width: 20%;" class="text-center">
+                        <Column sortable field="areaAdscripción" header="Ärea de Adscripción" style="width: 20%;"
+                            class="text-center">
                         </Column>
-                        <Column sortable field="denominacionArea"
-                            header="Denominación del área" style="width: 20%;"
+                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 20%;"
                             class="text-center">
                         </Column>
                         <Column header="Plazas" style="width: 15%;" class="text-center">
@@ -52,7 +40,7 @@
             </div>
         </div>
 
-        <modalPlazas :showModal="isModalVisible"  @close="isModalVisible = false" />
+        <modalPlazas :showModal="isModalVisible" @close="isModalVisible = false" />
 
     </div>
 </template>
@@ -122,7 +110,7 @@ const productos = ref([
 const isModalVisible = ref(false);
 
 function openModal() {
-  isModalVisible.value = true;
+    isModalVisible.value = true;
 }
 
 </script>

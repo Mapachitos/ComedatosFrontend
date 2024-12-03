@@ -2,10 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos login */
+
+.opcionesLogin {
+    @apply flex w-full h-16 items-center justify-center rounded-md text-white hover:bg-color-3 transition duration-200;
+}
+
+/* Estilos login */
+
+
+/* Estilos secciones menú informative*/
+.seccionMenuInformative {
+    @apply w-full h-full bg-color-2 flex items-center justify-center text-center md:text-xl hover:brightness-125 transition duration-500 ease-in-out cursor-pointer;
+}
+
+.animacionSeccion {
+    @apply transition-all duration-500 group-hover:w-full absolute w-0 h-[2px] bottom-0 bg-color-1;
+}
+
+/* Estilos secciones menú informative */
+
+/* Estilos formulario */
+/* Estilos label */
+.labelStyle {
+    @apply text-lg font-semibold text-gray-700;
+}
+/* Estilos label */
+
+
+/* Estilos input */
+.inputStyle {
+    @apply block w-full px-3 py-2 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-400 focus:outline-none;
+}
+/* Estilos input */
+
+
+/* Estilos div label/input columna */
+.divDatos {
+    @apply flex flex-col w-full space-y-2;
+}
+
+/* Estilos div label/input columna*/
+
+
+/* Estilos div label/input fila */
+.divDatos2 {
+    @apply flex flex-col md:flex-row md:space-x-6;
+}
+
+/* Estilos div label/input columna*/
+/* Estilos formulario */
+
+
+/* Estilos botón visualizar */
 .botonVisualizar {
     @apply text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md text-sm outline-none;
 }
 
+/* Estilos botón visualizar */
+
+
+/* Estilos botón añadir/agregar */
+.botonAgregar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-color-2 hover:brightness-125 active:brightness-75 font-medium rounded-md;
+}
+
+/* Estilos botón añadir/agregar */
+
+
+/* Estilos botón guardar/registrar */
+.botonGuardar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-color-3 hover:brightness-125 active:brightness-75 font-medium rounded-md;
+}
+
+/* Estilos botón añadir/agregar */
+
+
+/* Estilos botón cancelar/cerrar/eliminar */
+.botonCancelar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-red-600 hover:bg-red-700 font-medium rounded-md;
+}
+
+/* Estilos botón cancelar/cerrar/eliminar */
+
+
+/* Estilos botón regresar */
+.botonRegresar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-red-800 hover:bg-red-900 font-medium rounded-md;
+}
+
+/* Estilos botón regresar */
+
+
+/* Estilos botón cargar */
+.botonCargar {
+    @apply px-3 py-2 text-white active:text-gray-200 bg-color-5 hover:brightness-125 active:brightness-75 font-medium rounded-md;
+}
+
+/* Estilos botón cargar */
+
+
+/* Estilos contenedor tabla */
+.contenedorTabla {
+    @apply flex flex-col p-8 w-full h-full sm:h-7/8 sm:w-11/12 xl:w-11/12 2xl:w-11/12 sm:rounded-2xl bg-white shadow-lg;
+}
+
+/* Estilos contenedor tabla */
+
+
+/* Estilos de la tabla */
 .p-datatable {
     height: 100%;
     width: 100%;
@@ -71,8 +176,10 @@
     @apply rounded-lg bg-gray-100;
 }
 
+/* Estilos de la tabla */
 
 
+/* Estilos scroll form */
 .scroll-form::-webkit-scrollbar {
     width: 8px;
 }
@@ -97,8 +204,10 @@
     right: 25px;
 }
 
+/* Estilos scroll form */
 
 
+/* Estilos scroll modal */
 .scroll-modal::-webkit-scrollbar {
     width: 8px;
 }
@@ -123,7 +232,10 @@
     right: 25px;
 }
 
+/* Estilos scroll modal */
 
+
+/* Estilos scroll tabla */
 .scroll-tabla::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -145,3 +257,5 @@
     @apply bg-gray-300;
     /* Color del relleno de la barra de desplazamiento al pasar el mouse */
 }
+
+/* Estilos scroll tabla */
