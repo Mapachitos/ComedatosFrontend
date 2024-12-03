@@ -40,7 +40,7 @@
                         <Column header="Plazas" style="width: 15%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar">
+                                    <button @click="openModal" class="space-x-1 px-3 py-2 botonVisualizar">
                                         Visualizar
                                     </button>
                                 </div>
@@ -52,6 +52,8 @@
             </div>
         </div>
 
+        <modalPlazas :showModal="isModalVisible"  @close="isModalVisible = false" />
+
     </div>
 </template>
 
@@ -59,6 +61,9 @@
 import { ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+
+//Componentes
+import modalPlazas from '@/informative/components/modalPlazas.vue';
 
 // Definición de productos estáticos
 const productos = ref([
@@ -113,6 +118,12 @@ const productos = ref([
     },
 ]);
 
+
+const isModalVisible = ref(false);
+
+function openModal() {
+  isModalVisible.value = true;
+}
 
 </script>
 
