@@ -25,14 +25,14 @@
                 <div class="size-full rounded-lg bg-gray-200">
                     <DataTable :value="productos" scrollable scrollHeight="30em"
                         tableStyle="min-width: 70rem; width: 100%; height: 100%;" class="tablaPrimeVue">
-                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 25%;"
+                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 25%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="denominacionNorma"
+                        <Column sortable field="Area_NormaAtribuciones"
                             header="Denominación de la norma que establece atribuciones, responsabilidades y/o funciones y el fundamento legal (artículo y/o fracción)"
                             style="width: 30%;" class="text-center">
                         </Column>
-                        <Column field="hipervinculo"
+                        <Column field="Area_Reglamento"
                             header="Hipervínculo al fragmento de la norma que establece las facultades que correspondan a cada área"
                             style="width: 30%;" class="text-center">
                         </Column>
@@ -55,28 +55,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { type GobiernoInterface } from '../interfaces/gobiernoInterface';
+import { getGobierno } from '../services/gobiernoService';
 
 // Definición de productos estáticos
-const productos = ref([
-    {
-        denominacionArea: 'Área de Finanzas',
-        denominacionNorma: 'Norma de Responsabilidad Financiera, Artículo 5, Fracción II',
-        hipervinculo: 'http://example.com/norma-finanzas',
-    },
-    {
-        denominacionArea: 'Área de Recursos Humanos',
-        denominacionNorma: 'Norma de Gestión de Personal, Artículo 12, Fracción IV',
-        hipervinculo: 'http://example.com/norma-recursos-humanos',
-    },
-    {
-        denominacionArea: 'Área de Tecnologías de la Información',
-        denominacionNorma: 'Norma de Seguridad Informática, Artículo 8, Fracción I',
-        hipervinculo: 'http://example.com/norma-ti',
-    },
-]);
+const productos = ref<GobiernoInterface[]>();
+/*{
+    Area_Denominacion: 'Área de Finanzas',
+        Area_NormaAtribuciones: 'Norma de Responsabilidad Financiera, Artículo 5, Fracción II',
+        Area_Reglamento: 'http://example.com/norma-finanzas',
+    }
+*/
+
+onMounted(async () => {
+    productos.value = await getGobierno();
+});
 
 </script>
 
