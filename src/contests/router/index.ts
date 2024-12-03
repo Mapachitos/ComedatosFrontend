@@ -6,7 +6,7 @@ export const contestsRouter: RouteRecordRaw = {
     path: `/${ROUTE_NAME}`,
     name: ROUTE_NAME,
     component: () => import("@/contests/layout/contestsLayout.vue"),
-    redirect: `/${ROUTE_NAME}/contestInformation`, // Redirección a "areas"
+    redirect: `/${ROUTE_NAME}/contestInformation`, // Redirección 
     children:[
         {
             path: "contestInformation",
@@ -17,3 +17,5 @@ export const contestsRouter: RouteRecordRaw = {
 }
 
 export default contestsRouter;
+
+

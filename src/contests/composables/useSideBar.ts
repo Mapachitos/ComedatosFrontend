@@ -1,5 +1,4 @@
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
 export default function useSidebar() {
 
@@ -7,7 +6,7 @@ export default function useSidebar() {
     const isExpanded = ref(sessionStorage.getItem('isExpanded') === 'true' ? true : sessionStorage.getItem('isExpanded') === 'false' ? false : true);
 
     const routes = [
-        { path: '/contests/contestInformation', name: 'contestInformation', icon: 'pi-briefcase', title: 'Concursos' },
+        { path: 'contestInformation', name: 'contestInformation', icon: 'pi-briefcase', title: 'Concursos' },
         { path: 'products-list', name: 'ProductsList', icon: 'pi-book', title: 'Plantilla' },
     ];
 

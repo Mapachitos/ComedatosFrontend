@@ -71,6 +71,12 @@
             </div>
         </div>
 
+        <div class="flex justify-around space-x-4">
+            <button @click="storeNav.setSelectedView('detallesConcurso');"
+                class="pi pi-arrow-left fixed-button botonRegresar">
+            </button>
+        </div>
+
     </div>
 </template>
 
@@ -78,6 +84,10 @@
 import { ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+
+//Store
+import { navInfoStore } from '@/stores/NavInfoStore';
+const storeNav = navInfoStore();
 
 // Definición de productos estáticos
 const productos = ref([
