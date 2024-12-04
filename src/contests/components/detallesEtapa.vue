@@ -13,12 +13,12 @@
             <!-- Información del Concurso -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="p-4 bg-gray-100 rounded-lg">
-                    <p class="text-gray-600"><span class="font-bold text-gray-800">Nombre de la Etapa:</span> </p>
-                    <p class="text-gray-600"><span class="font-bold text-gray-800">Estatus:</span> </p>
+                    <p class="text-gray-600"><span class="font-bold text-gray-800">Nombre de la Etapa:</span> Inscripción</p>
+                    <p class="text-gray-600"><span class="font-bold text-gray-800">Estatus:</span> Activa</p>
                 </div>
                 <div class="p-4 bg-gray-100 rounded-lg">
-                    <p class="text-gray-600"><span class="font-bold text-gray-800">Fecha de Registro:</span> </p>
-                    <p class="text-gray-600"><span class="font-bold text-gray-800">Fecha de Cierre:</span> </p>
+                    <p class="text-gray-600"><span class="font-bold text-gray-800">Fecha de Registro:</span> 3 de Diciembre de 2024</p>
+                    <p class="text-gray-600"><span class="font-bold text-gray-800">Fecha de Registro:</span> 23 de Diciembre de 2024</p>
                 </div>
             </div>
         </div>
