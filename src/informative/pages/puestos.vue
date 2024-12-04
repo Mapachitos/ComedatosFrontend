@@ -10,19 +10,20 @@
             <div class="w-full h-full relative overflow-hidden">
 
                 <div class="size-full rounded-lg bg-gray-200">
-                    <DataTable :value="productos" scrollable scrollHeight="100%"
-                        tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue">
-                        <Column sortable field="denominacionCargo" header="Denominación del cargo" style="width: 25%;"
+                    <DataTable :value="puestos" scrollable scrollHeight="100%"
+                        tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue"
+                        @row-click="handleRowClick">
+                        <Column sortable field="Puesto_Cargo" header="Denominación del cargo" style="width: 25%;"
                             class="text-center font-semibold">
                         </Column>
-                        <Column sortable field="denominacionPuesto"
+                        <Column sortable field="Puesto_DenominacionGenero"
                             header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="areaAdscripción" header="Ärea de Adscripción" style="width: 20%;"
+                        <Column sortable field="Area_Adscripcion" header="Ärea de Adscripción" style="width: 20%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="denominacionArea" header="Denominación del área" style="width: 20%;"
+                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 20%;"
                             class="text-center">
                         </Column>
                         <Column header="Plazas" style="width: 15%;" class="text-center">
@@ -40,76 +41,42 @@
             </div>
         </div>
 
-        <modalPlazas :showModal="isModalVisible" @close="isModalVisible = false" />
+        <modalPlazas :showModal="isModalVisible" @close="isModalVisible = false" :puestos="selectedRow"/>
 
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
 //Componentes
 import modalPlazas from '@/informative/components/modalPlazas.vue';
-
-// Definición de productos estáticos
-const productos = ref([
-    {
-        denominacionCargo: 'Gerente Financiero',
-        denominacionPuesto: 'Gerente de Finanzas (Perspectiva de Género)',
-        areaAdscripción: 'Unidad de Transparencia, Acceso a la Información Pública y Protección de Datos Personales',
-        denominacionArea: 'Área de Finanzas',
-        hipervinculo: 'http://example.com/norma-finanzas',
+import { type PuestoInterface } from '../interfaces/puestoInterface';
+import { getPuesto } from '../services/puestoService';
+/*
+{
+        Puesto_Cargo: 'Gerente Financiero',
+        Puesto_DenominacionGenero: 'Gerente de Finanzas (Perspectiva de Género)',
+        Area_Adscripcion: 'Unidad de Transparencia, Acceso a la Información Pública y Protección de Datos Personales',
+        Area_Denominacion: 'Área de Finanzas'
     },
-    {
-        denominacionCargo: 'Especialista en Recursos Humanos',
-        denominacionPuesto: 'Especialista de Recursos Humanos',
-        areaAdscripción: 'Recursos Humanos',
-        denominacionArea: 'Área de Recursos Humanos',
-        hipervinculo: 'http://example.com/norma-recursos-humanos',
-    },
-    {
-        denominacionCargo: 'Desarrollador de Software',
-        denominacionPuesto: 'Desarrollador Backend',
-        areaAdscripción: 'TI',
-        denominacionArea: 'Área de Tecnologías de la Información',
-        hipervinculo: 'http://example.com/norma-ti',
-    },
-    {
-        denominacionCargo: 'Analista de Marketing',
-        denominacionPuesto: 'Analista de Campañas',
-        areaAdscripción: 'Marketing',
-        denominacionArea: 'Área de Marketing',
-        hipervinculo: 'http://example.com/norma-marketing',
-    },
-    {
-        denominacionCargo: 'Representante de Ventas',
-        denominacionPuesto: 'Ejecutivo de Ventas',
-        areaAdscripción: 'Comercial',
-        denominacionArea: 'Área de Ventas',
-        hipervinculo: 'http://example.com/norma-ventas',
-    },
-    {
-        denominacionCargo: 'Coordinador de Logística',
-        denominacionPuesto: 'Coordinador de Distribución',
-        areaAdscripción: 'Operaciones',
-        denominacionArea: 'Área de Logística',
-        hipervinculo: 'http://example.com/norma-logistica',
-    },
-    {
-        denominacionCargo: 'Analista Financiero',
-        denominacionPuesto: 'Analista de Finanzas',
-        areaAdscripción: 'Finanzas',
-        denominacionArea: 'Área de Finanzas',
-        hipervinculo: 'http://example.com/norma-analista-finanzas',
-    },
-]);
-
+*/
+// Definición de puestos estáticos
+const puestos = ref<PuestoInterface[]>();
+const selectedRow = ref({});
+onMounted(async () => {
+    puestos.value = await getPuesto();
+});
 
 const isModalVisible = ref(false);
 
 function openModal() {
+    isModalVisible.value = true;
+}
+function handleRowClick(event: any) {
+    selectedRow.value = event.data;
     isModalVisible.value = true;
 }
 

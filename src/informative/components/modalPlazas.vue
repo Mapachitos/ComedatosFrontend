@@ -20,26 +20,26 @@
         <div class="w-full h-full relative overflow-hidden">
 
           <div class="size-full rounded-lg bg-gray-200">
-            <DataTable :value="productos" scrollable scrollHeight="flex"
+            <DataTable :value="selectedRow" scrollable scrollHeight="flex"
               tableStyle="min-width: 70rem; width: 100%; height: 70%;" class="tablaPrimeVue">
-              <Column sortable field="denominacionArea" header="Denominación del área" style="width: 20%;"
+              <Column sortable field="Plazas.Area_Denominacion" header="Denominación del área" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="puestoClave" header="Clave o nivel de puesto" style="width: 10%;"
+              <Column sortable field="Plazas.Puesto_Clave" header="Clave o nivel de puesto" style="width: 10%;"
                 class="text-center">
               </Column>
-              <Column sortable field="denominacionPuesto"
+              <Column sortable field="Plazas.Puesto_DenominacionGenero"
                 header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="tipoPlaza" header="Tipo de Plaza" style="width: 10%;" class="text-center">
+              <Column sortable field="Plazas.Plaza_Tipo" header="Tipo de Plaza" style="width: 10%;" class="text-center">
               </Column>
-              <Column sortable field="areaAdscripción" header="Ärea de Adscripción" style="width: 20%;"
+              <Column sortable field="Plazas.Area_Adscripcion" header="Ärea de Adscripción" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="estatusPlaza" header="Estado de la Plaza" style="width: 10%;" class="text-center">
+              <Column sortable field="Plazas.Plaza_Estatus" header="Estado de la Plaza" style="width: 10%;" class="text-center">
               </Column>
-              <Column sortable field="generoPlaza" header="Sexo" style="width: 10%;" class="text-center">
+              <Column sortable field="Plazas.Plaza_Genero" header="Sexo" style="width: 10%;" class="text-center">
               </Column>
             </DataTable>
           </div>
@@ -53,77 +53,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
-// Definición de productos estáticos
-const productos = ref([
+import { type PuestoInterface } from '../interfaces/puestoInterface';
+/*
   {
-    denominacionArea: 'Área de Finanzas',
-    puestoClave: 'F001',
-    denominacionPuesto: 'Analista Financiero',
-    tipoPlaza: 'Temporal',
-    areaAdscripción: 'Finanzas Corporativas',
-    estatusPlaza: 'Ocupada',
-    generoPlaza: 'Indistinto',
-  },
-  {
-    denominacionArea: 'Área de Recursos Humanos',
-    puestoClave: 'RH002',
-    denominacionPuesto: 'Especialista en Reclutamiento',
-    tipoPlaza: 'Permanente',
-    areaAdscripción: 'Recursos Humanos',
-    estatusPlaza: 'Vacante',
-    generoPlaza: 'Femenino',
-  },
-  {
-    denominacionArea: 'Área de Finanzas',
-    puestoClave: 'F001',
-    denominacionPuesto: 'Analista Financiero',
-    tipoPlaza: 'Temporal',
-    areaAdscripción: 'Finanzas Corporativas',
-    estatusPlaza: 'Ocupada',
-    generoPlaza: 'Indistinto',
-  },
-  {
-    denominacionArea: 'Área de Recursos Humanos',
-    puestoClave: 'RH002',
-    denominacionPuesto: 'Especialista en Reclutamiento',
-    tipoPlaza: 'Permanente',
-    areaAdscripción: 'Recursos Humanos',
-    estatusPlaza: 'Vacante',
-    generoPlaza: 'Femenino',
-  },
-  {
-    denominacionArea: 'Área de Finanzas',
-    puestoClave: 'F001',
-    denominacionPuesto: 'Analista Financiero',
-    tipoPlaza: 'Temporal',
-    areaAdscripción: 'Finanzas Corporativas',
-    estatusPlaza: 'Ocupada',
-    generoPlaza: 'Indistinto',
-  },
-  {
-    denominacionArea: 'Área de Recursos Humanos',
-    puestoClave: 'RH002',
-    denominacionPuesto: 'Especialista en Reclutamiento',
-    tipoPlaza: 'Permanente',
-    areaAdscripción: 'Recursos Humanos',
-    estatusPlaza: 'Vacante',
-    generoPlaza: 'Femenino',
-  },
-  {
-    denominacionArea: 'Área de Finanzas',
-    puestoClave: 'F001',
-    denominacionPuesto: 'Analista Financiero',
-    tipoPlaza: 'Temporal',
-    areaAdscripción: 'Finanzas Corporativas',
-    estatusPlaza: 'Ocupada',
-    generoPlaza: 'Indistinto',
-  },
-
-]);
+    Plazas.Area_Denominacion: 'Área de Finanzas',
+    Plazas.Puesto_Clave: 'F001',
+    Plazas.Puesto_DenominacionGenero: 'Analista Financiero',
+    Plazas.Plaza_Tipo: 'Temporal',
+    Plazas.Area_Adscripcion: 'Finanzas Corporativas',
+    Plazas.Plaza_Estatus: 'Ocupada',
+    Plazas.Plaza_Genero: 'Indistinto',
+  }
+*/
+// Definición de puestos estáticos
 
 // Props que recibe el modal
 const props = defineProps({
@@ -131,7 +77,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  selectedRow: {
+    type: Array,
+    default: () => ({}),
+  },
 });
+import { watch } from 'vue';
 
 // Emitir evento para cerrar el modal
 const emit = defineEmits(['close']);
