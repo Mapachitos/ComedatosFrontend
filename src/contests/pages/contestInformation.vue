@@ -23,7 +23,7 @@
 
         <!--Aqui se agregan los concursos-->
         <div class="relative w-full flex flex-col flex-grow overflow-auto px-2 py-6 z-0 space-y-8 scroll-tracking">
-            <concursos />
+            <concursos :concursos="dataConcursos"/>
         </div>
     </div>
 
@@ -37,15 +37,26 @@
 <script setup lang="ts">
 //Store
 import { navInfoStore } from '@/stores/NavInfoStore';
+import { onMounted, ref } from 'vue';
 const storeNav = navInfoStore();
 storeNav.setSelectedView('ListaConcursos');
 storeNav.setTitle('Concursos');
+
+//--------------//
+import { type ConcursoInterface } from '../interfaces/concursoInterface';
+import { getConcursos } from '../services/concursoService';
+const dataConcursos = ref<ConcursoInterface[]>();
+onMounted(async () => {
+    dataConcursos.value = await getConcursos();
+});
+
 
 //Componentes
 import concursos from '../components/concursos.vue';
 import agregarConcurso from '../components/agregarConcurso.vue';
 import detallesConcurso from '../components/detallesConcurso.vue';
 import evaluar from '../components/evaluar.vue';
+
 </script>
 
 <style scoped>
