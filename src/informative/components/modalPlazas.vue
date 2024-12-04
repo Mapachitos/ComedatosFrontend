@@ -22,24 +22,24 @@
           <div class="size-full rounded-lg bg-gray-200">
             <DataTable :value="selectedRow" scrollable scrollHeight="flex"
               tableStyle="min-width: 70rem; width: 100%; height: 70%;" class="tablaPrimeVue">
-              <Column sortable field="Plazas.Area_Denominacion" header="Denominación del área" style="width: 20%;"
+              <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="Plazas.Puesto_Clave" header="Clave o nivel de puesto" style="width: 10%;"
+              <Column sortable field="Puesto_Clave" header="Clave o nivel de puesto" style="width: 10%;"
                 class="text-center">
               </Column>
-              <Column sortable field="Plazas.Puesto_DenominacionGenero"
+              <Column sortable field="Puesto_DenominacionGenero"
                 header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="Plazas.Plaza_Tipo" header="Tipo de Plaza" style="width: 10%;" class="text-center">
+              <Column sortable field="Plaza_Tipo" header="Tipo de Plaza" style="width: 10%;" class="text-center">
               </Column>
-              <Column sortable field="Plazas.Area_Adscripcion" header="Ärea de Adscripción" style="width: 20%;"
+              <Column sortable field="Area_Adscripcion" header="Ärea de Adscripción" style="width: 20%;"
                 class="text-center">
               </Column>
-              <Column sortable field="Plazas.Plaza_Estatus" header="Estado de la Plaza" style="width: 10%;" class="text-center">
+              <Column sortable field="Plaza_Estatus" header="Estado de la Plaza" style="width: 10%;" class="text-center">
               </Column>
-              <Column sortable field="Plazas.Plaza_Genero" header="Sexo" style="width: 10%;" class="text-center">
+              <Column sortable field="Plaza_Genero" header="Sexo" style="width: 10%;" class="text-center">
               </Column>
             </DataTable>
           </div>
@@ -53,20 +53,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
 import { type PuestoInterface } from '../interfaces/puestoInterface';
 /*
   {
-    Plazas.Area_Denominacion: 'Área de Finanzas',
-    Plazas.Puesto_Clave: 'F001',
-    Plazas.Puesto_DenominacionGenero: 'Analista Financiero',
-    Plazas.Plaza_Tipo: 'Temporal',
-    Plazas.Area_Adscripcion: 'Finanzas Corporativas',
-    Plazas.Plaza_Estatus: 'Ocupada',
-    Plazas.Plaza_Genero: 'Indistinto',
+    Area_Denominacion: 'Área de Finanzas',
+    Puesto_Clave: 'F001',
+    Puesto_DenominacionGenero: 'Analista Financiero',
+    Plaza_Tipo: 'Temporal',
+    Area_Adscripcion: 'Finanzas Corporativas',
+    Plaza_Estatus: 'Ocupada',
+    Plaza_Genero: 'Indistinto',
   }
 */
 // Definición de puestos estáticos
@@ -77,12 +77,22 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  selectedRow: {
-    type: Array,
+  /*selectedRow: {
+    type: Object,
     default: () => ({}),
-  },
+  },*/
 });
-
+const selectedRow = [
+  {
+    Area_Denominacion: 'Área de Finanzas',
+    Puesto_Clave: 'F001',
+    Puesto_DenominacionGenero: 'Analista Financiero',
+    Plaza_Tipo: 'Temporal',
+    Area_Adscripcion: 'Finanzas Corporativas',
+    Plaza_Estatus: 'Ocupada',
+    Plaza_Genero: 'Indistinto',
+  }
+]
 // Emitir evento para cerrar el modal
 const emit = defineEmits(['close']);
 
