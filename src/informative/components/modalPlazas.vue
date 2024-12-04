@@ -82,7 +82,6 @@ const props = defineProps({
     default: () => ({}),
   },
 });
-import { watch } from 'vue';
 
 // Emitir evento para cerrar el modal
 const emit = defineEmits(['close']);
@@ -90,4 +89,5 @@ const emit = defineEmits(['close']);
 function closeModal() {
   emit('close');
 }
+
 </script>

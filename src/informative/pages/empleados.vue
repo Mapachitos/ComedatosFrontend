@@ -22,7 +22,7 @@
                         tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue"
                         @row-click="handleRowClick">
                         <Column sortable field="Empleado_Nombre" header="Nombre de la persona servidora pública"
-                            style="width: 15%;" class="text-center">
+                            style="width: 18%;" class="text-center">
                             <template #body="slotProps">
                                 {{ slotProps.data.Empleado_Nombre + ' ' + slotProps.data.Empleado_Ap1 + ' ' +
                                     slotProps.data.Empleado_Ap2 }}
@@ -35,7 +35,7 @@
                             class="text-center">
                         </Column>
                         <Column sortable field="Sanciones_Coincidencias.0.Empleados_Carrera"
-                            header="Carrera genérica en su cargo" style="width: 10%;" class="text-center"></Column>
+                            header="Carrera genérica en su cargo" style="width: 15%;" class="text-center"></Column>
                         <Column sortable field="Sanciones_Coincidencias.0.Empleado_Trayectoria"
                             header="Hipervínculo al documento que contenga la trayectoria" style="width: 15%;"
                             class="text-center">
@@ -56,14 +56,7 @@
                             header="Sanciones administrativas" style="width: 10%;" class="text-center">
                         </Column>
                         <Column sortable field="Sueldos_Coincidencias.0.Empleado_Sueldo"
-                            header="Monto de la remuneración mensual bruta" style="width: 11.25%;" class="text-center">
-                        </Column>
-                        <Column header="Detalles" style="width: 8.75%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button class="space-x-1 px-3 py-2 botonVisualizar">Visualizar</button>
-                                </div>
-                            </template>
+                            header="Monto de la remuneración mensual bruta" style="width: 12%;" class="text-center">
                         </Column>
                     </DataTable>
                 </div>

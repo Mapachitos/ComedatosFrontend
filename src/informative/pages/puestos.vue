@@ -4,8 +4,16 @@
 
         <div class="flex flex-col w-full h-full space-y-2">
 
-            <input type="text" placeholder="Buscar..."
-                class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
+            <div class="flex flex-row w-full space-x-12">
+
+                <div class="min-w-32 w-32 flex items-center space-x-3">
+                    <h1 class="text-left font-semibold text-base lg:text-xl">Puestos: </h1>
+                    <span class="font-bold text-color-5 text-xl text-center">{{ puestos.length }}</span>
+                </div>
+
+                <input type="text" placeholder="Buscar..."
+                    class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
+            </div>
 
             <div class="w-full h-full relative overflow-hidden">
 
@@ -17,23 +25,14 @@
                             class="text-center font-semibold">
                         </Column>
                         <Column sortable field="Puesto_DenominacionGenero"
-                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 20%;"
+                            header="Denominación del puesto (Redactados con perspectiva de género)" style="width: 25%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Area_Adscripcion" header="Ärea de Adscripción" style="width: 20%;"
+                        <Column sortable field="Area_Adscripcion" header="Ärea de Adscripción" style="width: 25%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 20%;"
+                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 25%;"
                             class="text-center">
-                        </Column>
-                        <Column header="Plazas" style="width: 15%;" class="text-center">
-                            <template #body="slotProps">
-                                <div class="size-full flex items-center justify-center">
-                                    <button @click="openModal" class="space-x-1 px-3 py-2 botonVisualizar">
-                                        Visualizar
-                                    </button>
-                                </div>
-                            </template>
                         </Column>
                     </DataTable>
                 </div>
@@ -41,7 +40,7 @@
             </div>
         </div>
 
-        <modalPlazas :showModal="isModalVisible" @close="isModalVisible = false" :puestos="selectedRow"/>
+        <modalPlazas :showModal="showModal" :puestos="selectedRow" @close="showModal = false" />
 
     </div>
 </template>
@@ -64,44 +63,20 @@ import { getPuesto } from '../services/puestoService';
     },
 */
 // Definición de puestos estáticos
-const puestos = ref<PuestoInterface[]>();
+
+const puestos = ref<PuestoInterface[]>([]);
+
 const selectedRow = ref({});
 onMounted(async () => {
     puestos.value = await getPuesto();
 });
 
-const isModalVisible = ref(false);
+const showModal = ref(false);
 
-function openModal() {
-    isModalVisible.value = true;
-}
+// Función para manejar el clic en una fila
 function handleRowClick(event: any) {
     selectedRow.value = event.data;
-    isModalVisible.value = true;
+    showModal.value = true;
 }
 
 </script>
-
-<style>
-.scroll-tabla::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    /* Ancho de la barra de desplazamiento */
-}
-
-.scroll-tabla::-webkit-scrollbar-track {
-    background: #ffffff;
-    /* Color del fondo de la barra de desplazamiento */
-}
-
-.scroll-tabla::-webkit-scrollbar-thumb {
-    background: #e9e9e9;
-    /* Color del relleno de la barra de desplazamiento */
-    /* Radio de borde de la barra de desplazamiento */
-}
-
-.scroll-tabla::-webkit-scrollbar-thumb:hover {
-    @apply bg-color-3;
-    /* Color del relleno de la barra de desplazamiento al pasar el mouse */
-}
-</style>
