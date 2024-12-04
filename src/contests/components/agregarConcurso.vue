@@ -86,6 +86,7 @@ import { navInfoStore } from '@/stores/NavInfoStore';
 import agregarEtapa from './agregarEtapa.vue';
 // Store 
 const storeNav = navInfoStore();
+storeNav.setTitle('Agregar Concurso');
 
 // Manejo de etapas
 const etapas = ref<number[]>([]);

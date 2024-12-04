@@ -37,7 +37,7 @@
 
             <div class="flex h-full flex-col w-full max-w-full">
                 <header class="bg-color-2 w-full min-h-20 h-20 flex shadow-xl z-10 justify-center items-center">
-                    <h1 class="text-lg font-bold mx-auto text-white">Mi Aplicación</h1>
+                    <h1 class="text-xl font-bold mx-auto text-white">{{ storeNav.getTitle() }}</h1>
                 </header>
                 <div class="bg-slate-200 w-full h-full flex flex-col items-center justify-center overflow-hidden p-4">
                     <RouterView />
@@ -49,6 +49,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+
+//Store
+import { navInfoStore } from '@/stores/NavInfoStore';
+const storeNav = navInfoStore();
 
 // Control de expansión del sidebar
 const isExpanded = ref(true);

@@ -93,10 +93,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+// Store 
 import { navInfoStore } from '@/stores/NavInfoStore';
+const storeNav = navInfoStore();
+storeNav.setTitle('Detalles del Concurso');
 // Componentes
 import detallesEtapa from './detallesEtapa.vue';
-
-// Store 
-const storeNav = navInfoStore();
 </script>

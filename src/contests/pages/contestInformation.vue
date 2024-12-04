@@ -39,6 +39,7 @@
 import { navInfoStore } from '@/stores/NavInfoStore';
 const storeNav = navInfoStore();
 storeNav.setSelectedView('ListaConcursos');
+storeNav.setTitle('Concursos');
 
 //Componentes
 import concursos from '../components/concursos.vue';

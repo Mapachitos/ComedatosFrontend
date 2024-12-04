@@ -88,6 +88,7 @@ import Column from 'primevue/column';
 //Store
 import { navInfoStore } from '@/stores/NavInfoStore';
 const storeNav = navInfoStore();
+storeNav.setTitle('Evaluar Concurso');
 
 // Definición de productos estáticos
 const productos = ref([

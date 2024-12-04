@@ -24,6 +24,7 @@ import { navInfoStore } from '@/stores/NavInfoStore';
 import AgregarEtapa from '@/contests/components/AgregarEtapa.vue';
 // Store 
 const storeNav = navInfoStore();
+storeNav.setTitle('Crear Plantilla');
 
 const etapas = ref<number[]>([0]); // Inicia con una etapa por defecto
 

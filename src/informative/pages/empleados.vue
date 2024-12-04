@@ -4,13 +4,13 @@
         <div class="flex flex-col w-full h-full space-y-2">
 
 
-            <div class="flex md:flex-row flex-col w-full md:space-x-2 space-y-2 md:space-y-0">
-                <select
-                    class="p-2 min-h-10 h-10 min-w-48 text-sm outline-none border-2 border-gray-400 bg-gray-00 focus:border-gray-600 rounded-md transition-colors duration-200 ease-in-out">
-                    <option value="global">RFC</option>
-                    <option value="Proyecto.Proyecto_Nombre">Nombre</option>
-                    <option value="Profesor_Asesor.Profesor_Nombre">Primer apellido</option>
-                </select>
+            <div class="flex flex-row w-full space-x-12">
+
+                <div class="min-w-32 w-32 flex items-center space-x-3">
+                    <h1 class="text-left font-semibold text-base lg:text-xl">Empleados: </h1>
+                    <span class="font-bold text-color-5 text-xl text-center">{{ empleados.length }}</span>
+                </div>
+
                 <input type="text" placeholder="Buscar..."
                     class="rounded-md border-gray-400 border-2 focus:outline-none focus:border-gray-600 w-full truncate font-medium placeholder-gray-500 text-sm md:text-base min-h-10 h-10 p-2 focus:placeholder-gray-600">
             </div>
@@ -84,7 +84,8 @@ import modalEmpleados from '../components/modalEmpleados.vue';
 import { type EmpleadoInterface } from '../interfaces/empleadoInterface';
 import { getEmpleados } from '../services/empleadoService';
 
-const empleados = ref<EmpleadoInterface[]>();
+
+const empleados = ref<EmpleadoInterface[]>([]);
 
 const showModal = ref(false);
 const selectedRow = ref({});
