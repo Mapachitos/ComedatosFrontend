@@ -8,29 +8,9 @@
       </div>
       <div class="flex w-full h-full overflow-y-auto scroll-modal">
         <ul class="w-full">
-          <li v-for="(value, key) in selectedRow" :key="key" class="p-2 border-b border-gray-300">
-            <template v-if="key === 'Sueldos_Coincidencias'">
-              <ul>
-              <li v-for="(sancion, index) in value" :key="index" class="p-2 border-b border-gray-300">
-                <div v-for="(data, kkey) in sancion" :key="kkey">
-                  <span class="font-semibold">{{ headersArray[kkey] }}:</span> {{ data }}
-                </div>
-              </li>
-              </ul>
-            </template>
-            <template v-if="key === 'Sanciones_Coincidencias'">
-              <ul>
-                <li v-for="(sancion, index) in value" :key="index" class="p-2 border-b border-gray-300">
-                  <div v-for="(data, kkey) in sancion" :key="kkey">
-                    <span class="font-semibold">{{ headersArray2[kkey] }}:</span> {{ data }}
-                  </div>
-                </li>
-              </ul>
-            </template>
-            <template v-if="key !== 'Sanciones_Coincidencias' && key !== 'Sueldos_Coincidencias'">
-              <span class="font-semibold">{{ headers[key] }}:-:</span>{{ value }}
-            </template>
-            </li>
+          <li v-for="(value, key) in filteredSelectedRow" :key="key" class="p-2 border-b border-gray-300">
+            <span class="font-semibold">{{ headers[key] }}:</span> {{ value }}
+          </li>
         </ul>
       </div>
     </div>
@@ -38,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 
 // Props que recibe el modal
 const props = defineProps({
@@ -69,4 +50,11 @@ const emit = defineEmits(['close']);
 function closeModal() {
   emit('close');
 }
+
+// Filtrar selectedRow para mostrar solo las claves que están en headers
+const filteredSelectedRow = computed(() => {
+  return Object.fromEntries(
+    Object.entries(props.selectedRow).filter(([key]) => key in props.headers)
+  );
+});
 </script>

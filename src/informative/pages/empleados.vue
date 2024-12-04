@@ -22,27 +22,41 @@
                         tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue"
                         @row-click="handleRowClick">
                         <Column sortable field="Empleado_Nombre" header="Nombre de la persona servidora pública"
-                            style="width: 10%;" class="text-center">
+                            style="width: 15%;" class="text-center">
                             <template #body="slotProps">
-                                {{ slotProps.data.Empleado_Nombre + ' ' + slotProps.data.Empleado_Ap1 + ' ' + slotProps.data.Empleado_Ap2 }}
-                            </template></Column>
+                                {{ slotProps.data.Empleado_Nombre + ' ' + slotProps.data.Empleado_Ap1 + ' ' +
+                                    slotProps.data.Empleado_Ap2 }}
+                            </template>
+                        </Column>
                         <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 15%;"
                             class="text-center">
                         </Column>
                         <Column sortable field="Puesto_Denominacion" header="Denominación del cargo" style="width: 15%;"
                             class="text-center">
                         </Column>
-                        <Column sortable field="Sanciones_Coincidencias.0.Empleados_Carrera" header="Carrera genérica en su cargo" style="width: 10%;" 
-                            class="text-center"></Column>
+                        <Column sortable field="Sanciones_Coincidencias.0.Empleados_Carrera"
+                            header="Carrera genérica en su cargo" style="width: 10%;" class="text-center"></Column>
                         <Column sortable field="Sanciones_Coincidencias.0.Empleado_Trayectoria"
-                            header="Hipervínculo al documento que contenga la trayectoria" style="width: 20%;"
+                            header="Hipervínculo al documento que contenga la trayectoria" style="width: 15%;"
                             class="text-center">
+                            <template #body="slotProps">
+                                <template v-if="slotProps.data.Sanciones_Coincidencias?.[0]?.Empleado_Trayectoria">
+                                    <button
+                                        @click="redirectToUrl(slotProps.data.Sanciones_Coincidencias[0].Empleado_Trayectoria)"
+                                        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                                        Ir a...
+                                    </button>
+                                </template>
+                                <template v-else>
+                                    <span class="text-gray-500">Hipervínculo no disponible</span>
+                                </template>
+                            </template>
                         </Column>
-                        <Column sortable field="Sanciones_Coincidencias.0.Empleado_Sanciones" header="Sanciones administrativas" style="width: 10%;"
-                            class="text-center">
+                        <Column sortable field="Sanciones_Coincidencias.0.Empleado_Sanciones"
+                            header="Sanciones administrativas" style="width: 10%;" class="text-center">
                         </Column>
-                        <Column sortable field="Sueldos_Coincidencias.0.Empleado_Sueldo" header="Monto de la remuneración mensual bruta"
-                            style="width: 11.25%;" class="text-center">
+                        <Column sortable field="Sueldos_Coincidencias.0.Empleado_Sueldo"
+                            header="Monto de la remuneración mensual bruta" style="width: 11.25%;" class="text-center">
                         </Column>
                         <Column header="Detalles" style="width: 8.75%;" class="text-center">
                             <template #body="slotProps">
@@ -56,7 +70,7 @@
             </div>
         </div>
 
-        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers" :headersArray="headersArray" :headersArray2="headersArray2"
+        <modalEmpleados :showModal="showModal" :selectedRow="selectedRow" :headers="headers"
             @close="showModal = false" />
     </div>
 </template>
@@ -78,7 +92,7 @@ const selectedRow = ref({});
 onMounted(async () => {
     empleados.value = await getEmpleados();
 });
-/*
+
 const headers = {
     Empleado_Nombre: 'Nombre(s) de la persona servidora pública',
     Empleado_Ap1: 'Primer apellido de la persona servidora pública',
@@ -102,7 +116,13 @@ const headers = {
     Empleado_CP: 'Domicilio oficial: código postal',
     Empleado_NumTelefono: 'Número(s) de teléfono oficial',
     Empleado_NivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)'
-};*/
+};
+
+function redirectToUrl(url: string): void {
+    window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
+}
+
+
 /*
         _id: 'ID del empleado',
     Puesto_Clave: 'Clave del puesto',
@@ -126,8 +146,9 @@ const headers = {
     Empleado_NumTelefono: 'Número de teléfono del empleado',
     Empleado_Extension: 'Extensión del teléfono del empleado',
     Empleado_Sanciones: 'Sanciones del empleado',
-*/
-const headersArray = {
+
+
+    const headersArray = {
     _id: 'ID del empleado',
     Tipo_Integrante: 'Tipo de integrante',
     Puesto_Clave: 'Clave del puesto en coincidencias de sueldos',
@@ -183,6 +204,9 @@ const headers = {
     Empleado_NivelEstudios: 'Nivel máximo de estudios concluido y comprobable (catálogo)',
     Empleado_Extension: 'Extensión del teléfono del empleado', 
 };
+*/
+
+
 
 
 // Función para manejar el clic en una fila

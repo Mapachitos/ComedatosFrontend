@@ -23,9 +23,9 @@
             <div class="w-full h-full relative overflow-hidden">
 
                 <div class="size-full rounded-lg bg-gray-200">
-                    <DataTable :value="productos" scrollable scrollHeight="30em"
-                        tableStyle="min-width: 70rem; width: 100%; height: 100%;" class="tablaPrimeVue">
-                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 25%;"
+                    <DataTable :value="productos" scrollable scrollHeight="100%"
+                        tableStyle="min-width: 100rem; width: 100%; height: 100%;" class="tablaPrimeVue">
+                        <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 30%;"
                             class="text-center">
                         </Column>
                         <Column sortable field="Area_NormaAtribuciones"
@@ -33,9 +33,21 @@
                             style="width: 30%;" class="text-center">
                         </Column>
                         <Column field="Area_Reglamento"
-                            header="Hipervínculo al fragmento de la norma que establece las facultades que correspondan a cada área"
-                            style="width: 30%;" class="text-center">
+                            header="Hipervínculo a la norma que establece las facultades de cada área"
+                            style="width: 25%;" class="text-center">
+                            <template #body="slotProps">
+                                <template v-if="slotProps.data.Area_Reglamento">
+                                    <button @click="redirectToUrl(slotProps.data.Area_Reglamento)"
+                                        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                                        Ir a...
+                                    </button>
+                                </template>
+                                <template v-else>
+                                    <span class="text-gray-500 italic">Hipervínculo no disponible</span>
+                                </template>
+                            </template>
                         </Column>
+
                         <Column header="Puestos" style="width: 15%;" class="text-center">
                             <template #body="slotProps">
                                 <div class="size-full flex items-center justify-center">
@@ -73,6 +85,10 @@ const productos = ref<GobiernoInterface[]>();
 onMounted(async () => {
     productos.value = await getGobierno();
 });
+
+function redirectToUrl(url: string): void {
+    window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
+}
 
 </script>
 
