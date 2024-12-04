@@ -55,7 +55,7 @@
 
 /* Estilos h1 mostrar datos */
 .h1DatosMostrar {
-    @apply text-sm sm:text-base font-bold text-gray-800 w-full text-wrap break-words text-justify;
+    @apply text-sm sm:text-base text-gray-800 w-full text-wrap break-words text-justify;
 }
 
 /* Estilos h1 mostrar datos*/

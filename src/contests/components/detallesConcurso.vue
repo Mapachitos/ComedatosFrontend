@@ -3,7 +3,7 @@
 
         <div class="w-full flex items-center flex-row">
             <h1 class="text-xl font-bold text-color-2 flex-grow sm:text-center text-start flexr">
-                Nombre del Concurso
+                Concurso de Innovación
                 <i class="pi pi-trophy mr-2 text-yellow-500"></i>
             </h1>
             <button
@@ -17,12 +17,14 @@
 
                 <!-- Descripción -->
                 <div class="divDatos">
-                    <label for="descripcion"
-                        class="labelStyle">Descripción:</label>
+                    <label for="descripcion" class="labelStyle">Descripción:</label>
                     <div class="divDatosMostrar">
-                        <h1
-                            class="h1DatosMostrar 3xl:text-lg">
-                            holaaaa</h1>
+                        <h1 class="h1DatosMostrar 3xl:text-lg">
+                            Un concurso innovador es una competencia diseñada para fomentar la creatividad y la invención.
+                        Los participantes presentan ideas o proyectos originales que abordan problemas específicos o
+                        mejoran procesos existentes. El objetivo es incentivar el pensamiento fuera de lo común y
+                        premiar las soluciones más ingeniosas y efectivas.
+                        </h1>
                     </div>
                 </div>
 
@@ -30,9 +32,8 @@
                 <div class="divDatos">
                     <label for="nombre" class="labelStyle">Área:</label>
                     <div class="divDatosMostrar">
-                        <h1
-                            class="h1DatosMostrar 3xl:text-lg">
-                            holaaaa</h1>
+                        <h1 class="h1DatosMostrar 3xl:text-lg">
+                            Tecnología</h1>
                     </div>
                 </div>
 
@@ -40,9 +41,8 @@
                 <div class="divDatos">
                     <label for="puestos" class="labelStyle">Puesto:</label>
                     <div class="divDatosMostrar">
-                        <h1
-                            class="h1DatosMostrar 3xl:text-lg">
-                            holaaaa</h1>
+                        <h1 class="h1DatosMostrar 3xl:text-lg">
+                            Innovador</h1>
                     </div>
                 </div>
 
@@ -51,17 +51,15 @@
                     <div class="divDatos md:w-3/5">
                         <label for="ubicacion" class="labelStyle">Ubicación:</label>
                         <div class="divDatosMostrar">
-                            <h1
-                                class="h1DatosMostrar 3xl:text-lg">
-                                holaaaa</h1>
+                            <h1 class="h1DatosMostrar 3xl:text-lg">
+                                Global</h1>
                         </div>
                     </div>
                     <div class="divDatos md:w-2/5 mt-4 md:mt-0">
                         <label for="sueldo" class="labelStyle">Sueldo:</label>
                         <div class="divDatosMostrar">
-                            <h1
-                                class="h1DatosMostrar 3xl:text-lg">
-                                holaaaa</h1>
+                            <h1 class="h1DatosMostrar 3xl:text-lg">
+                                100000</h1>
                         </div>
                     </div>
                 </div>
@@ -70,9 +68,8 @@
                 <div class="divDatos">
                     <label for="requisitosProyecto" class="labelStyle">Requisitos:</label>
                     <div class="divDatosMostrar">
-                        <h1
-                            class="h1DatosMostrar 3xl:text-lg">
-                            holaaaa</h1>
+                        <h1 class="h1DatosMostrar 3xl:text-lg">
+                            Conociemientos en Laravel</h1>
                     </div>
                 </div>
             </div>
@@ -86,8 +83,8 @@
         </div>
 
         <detallesEtapa />
-        
-        
+
+
     </div>
 </template>
 
