@@ -1,5 +1,5 @@
 <template>
-    <div class="w-screen h-screen flex flex-col overflow-x-hidden overflow-y-auto bg-color-1">
+    <div class="w-screen h-screen flex flex-col overflow-x-hidden overflow-y-auto bg-color-4">
         <div class="w-full sticky top-0 z-10 min-h-24 h-24 max-h-24 bg-color-3 shadow-xl shadow-black/30">
             <div class="w-auto h-full flex">
                 <div class="w-80 h-full flex items-center justify-center bg-white">

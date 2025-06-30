@@ -20,7 +20,7 @@
         <div class="w-full h-full relative overflow-hidden">
 
           <div class="size-full rounded-lg bg-gray-200">
-            <DataTable :value="selectedRow" scrollable scrollHeight="flex"
+            <DataTable :value="selectedRow" scrollable scrollHeight="100%"
               tableStyle="min-width: 70rem; width: 100%; height: 70%;" class="tablaPrimeVue">
               <Column sortable field="Area_Denominacion" header="Denominación del área" style="width: 20%;"
                 class="text-center">
